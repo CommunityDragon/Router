@@ -34,35 +34,13 @@ export class DynamicService {
     dataRoutes = dataRoutes.filter(
       ({ cdnRoute }) => {
         if (cdnRoute.route.length != segmentLength) return false;
-        
-        if (!cdnRoute.route.every((route: any, i: number) => {
-          let correctType = (reqRoutes[i].types.indexOf(route.type) != -1);
-          
-          if (correctType) {
-            if (route.type == Types.CHAMPION_ID) {
-              let { id, key } = champions.filter((champion) => champion.id == reqRoutes[i].segment)[0];
-              paramData.championKey = key;
-              paramData.championId = id;
-            }
 
-            if (route.type == Types.CHAMPION_KEY) {
-              let { id, key } = champions.filter(
-                (champion) => champion.key.toLocaleLowerCase() == reqRoutes[i].segment.toLocaleLowerCase()
-              )[0];
-              paramData.championKey = key;
-              paramData.championId = id;
-            }
-
-            if (route.type == Types.SKIN_ID) {
-              paramData.skinId = reqRoutes[i].segment
-            }
-
-            if (route.type == Types.ROUTE) {
-              return (route.value == reqRoutes[i].segment)
-            }
-          }
-          return correctType;
-        })) return false;
+        if (!this.isValidRoute(
+          cdnRoute, 
+          reqRoutes, 
+          paramData, 
+          champions)
+        ) return false;
         
         if (
           reqEntity.getFormat() 
@@ -74,18 +52,81 @@ export class DynamicService {
     );
     
     return await Promise.all(dataRoutes.map(async (x) => {
-      return await (new ResponseEntity(x.rawRoute, reqEntity.getPatch().getCDragonPatch(), paramData)).getUrl();
+      return await (
+        new ResponseEntity(x.rawRoute, reqEntity.getPatch().getCDragonPatch(), paramData)
+      ).getUrl();
     })) 
+  }
+
+  /**
+   * checks if it is a valid route and assigns values to the paramData
+   * 
+   * @param cdnRoute 
+   * @param reqRoutes 
+   * @param paramData 
+   * @param champions 
+   */
+  private isValidRoute(cdnRoute, reqRoutes, paramData, champions) {
+    return (cdnRoute.route.every((route: any, i: number) => {
+      let correctType = (reqRoutes[i].types.indexOf(route.type) != -1);
+      
+      if (correctType) {
+        switch (route.type) {
+          case Types.CHAMPION_ID:
+            paramData = Object.assign(
+              paramData, this.getChampionById(champions, reqRoutes[i])
+            );
+            return true;
+          case Types.CHAMPION_KEY:
+            paramData = Object.assign(
+              paramData, this.getChampionByKey(champions, reqRoutes[i])
+            );
+            return true;
+          case Types.SKIN_ID:
+            paramData.skinId = reqRoutes[i].segment
+            return true;
+          case Types.ROUTE:
+            return (route.value == reqRoutes[i].segment)
+        }
+      }
+      return correctType;
+    }));
   }
   
   /**
-  * 
-  * @param {string[]} urls 
-  */
+   * returns the championId and ChampionKey by Key
+   * 
+   * @param champions 
+   * @param reqRoute 
+   */
+  private getChampionByKey(champions: any[], reqRoute: any) {
+    let champion =  champions.filter(
+      (champion) => champion.key.toLocaleLowerCase() == reqRoute.segment.toLocaleLowerCase()
+    )[0];
+    return { championId: champion.id, championKey: champion.key }
+  }
+
+  /**
+   * returns the championId and ChampionKey by ID
+   * 
+   * @param champions 
+   * @param reqRoute 
+   */
+  private getChampionById(champions: any[], reqRoute: any) {
+    let champion = champions.filter(
+      (champion) => champion.id == reqRoute.segment
+    )[0];
+    return { championId: champion.id, championKey: champion.key }
+  }
+
+  /**
+   * returns the piped URL
+   * 
+   * @param {string[]} urls 
+   */
   async pipeFile(urls: string[], res) {
     for (let i = 0; i < urls.length; i++) {
       try {
-        console.log(Urls.CDRAGON_RAW_BASE + urls[i]);
         let { data, status } = await Axios({
           responseType: 'stream',
           method: 'get',

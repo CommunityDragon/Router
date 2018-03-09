@@ -86,7 +86,6 @@ export class ResponseEntity {
      * @param arr values that traverse through the JSON
      */
     private getValue(json: any, arr: string[]) {
-        console.log(typeof arr[0]);
         let traversedJson = json[arr[0]];
         arr.shift();
         if (arr.length > 0) {
