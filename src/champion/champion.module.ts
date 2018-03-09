@@ -4,6 +4,9 @@ import { ChampionService } from './champion.service';
 import { PatchService } from '../patch/patch.service';
 import { PatchCheckerMiddleware } from '../common/middleware/patchchecker.middleware';
 
+/** 
+ * handles champion requests
+ */
 @Module({
   controllers: [ChampionController],
   components: [ChampionService, PatchService],
