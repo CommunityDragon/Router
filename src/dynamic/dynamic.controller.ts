@@ -1,8 +1,6 @@
-import { Get, Controller, Param, Request, Response, HttpException, HttpStatus } from '@nestjs/common';
+import { Get, Controller, Param, Request, Response } from '@nestjs/common';
 import RequestEntityFactory from '../factory/requestentityfactory';
-import Patch from '../entity/patch';
 import { DynamicService } from './dynamic.service';
-import { Urls } from '../entity/urls';
 
 /**
  * dynamically allocated endpoints that reroute from RAW

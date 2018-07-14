@@ -4,8 +4,8 @@
   "description": "Dynamically generated endpoint CDN which reroutes files from different sources under it's own domain",
   "license": "MIT",
   "scripts": {
-    "start": "node index.js",
-    "start:watch": "nodemon --ignore cache/ --ignore data/*",
+    "start": "node $NODE_DEBUG_OPTION index.js",
+    "start:watch": "nodemon $NODE_DEBUG_OPTION --ignore cache/ --ignore data/*",
     "prestart:prod": "tsc",
     "start:prod": "node dist/main.js"
   },

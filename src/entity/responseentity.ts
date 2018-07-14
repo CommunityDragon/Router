@@ -1,6 +1,7 @@
-import CDNEntity from "./cdnentity";
 import { Urls } from "./urls";
 import Axios from "axios";
+
+const CDRAGON_RAW_BASE = Urls.CDRAGON_RAW_BASE;
 
 export class ResponseEntity {
     private parameterData: ParameterData;
@@ -60,7 +61,7 @@ export class ResponseEntity {
 
         switch (this.returnType) {
             case 'jsonData':
-                let reqUrl = Urls.CDRAGON_RAW_BASE + this.patch + path;
+                let reqUrl = CDRAGON_RAW_BASE + this.patch + path;
                 let reqData = (await Axios.get(reqUrl)).data;
                 path = this.getValue(reqData, this.value.concat());
                 break;

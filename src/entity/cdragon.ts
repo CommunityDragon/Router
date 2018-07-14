@@ -1,62 +1,63 @@
+import { Urls } from './urls'
 import axios from 'axios';
 import Patch from './patch';
-import axiosRetry from 'axios-retry';
 
+const CDRAGON_RAW_BASE = Urls.CDRAGON_RAW_BASE;
 const { watch, unwatch } = require("watchjs");
 
-const urlBase: string = 'https://raw.communitydragon.org/'
-const summaryLink = '/plugins/rcp-be-lol-game-data/global/default/v1/champion-summary.json'
-const skinLink = '/plugins/rcp-be-lol-game-data/global/default/v1/champions/'
+const urlBase: string = CDRAGON_RAW_BASE;
+const summaryLink = '/plugins/rcp-be-lol-game-data/global/default/v1/champion-summary.json';
+const skinLink = '/plugins/rcp-be-lol-game-data/global/default/v1/champions/';
 
 export default class CDragon {
-  
+
   private static instance: CDragon;
-  
+
   /** duration of cache */
   private duration = {
     champions: 1000 * 3600
-  }
-  
+  };
+
   /** epoch time of initialization of request */
   private initialized = {
     champions: {}
-  }
+  };
 
   private caching = {
     champions: {}
-  }
-  
+  };
+
   /** stores the cache of the request */
   private cache = {
     champions: {}
-  }
-  
+  };
+
   private constructor() { }
-  
+
   static getInstance() {
     if (!CDragon.instance) {
       CDragon.instance = new CDragon();
     }
     return CDragon.instance;
   }
-  
+
   /**
    * gets the cdragon patch
-   * 
-   * @param ddragonPatch 
+   *
+   * @param ddragonPatch
    */
   getCDragonPatch(ddragonPatch: string) {
     return (ddragonPatch.split('.', 2)).join('.');
   }
-  
+
   /**
-  * Get Raw CDragon Champions
-  */
+   * Get Raw CDragon Champions
+   */
   async getChampions(patch: Patch): Promise<any[]> {
     try {
       let cdragonPatch = patch.getCDragonPatch();
       let { cache, initialized, duration } = this.getCacheStats(cdragonPatch);
-      
+
       if (cache.length == 0 || initialized + duration < new Date().getTime()) {
         if (this.caching.champions[cdragonPatch]) {
           await this.watchChampions(cdragonPatch);
@@ -68,7 +69,7 @@ export default class CDragon {
           this.caching.champions[cdragonPatch] = false;
         }
       }
-      
+
       return this.cache.champions[cdragonPatch];
     } catch(e) {
       console.debug(e);
@@ -78,8 +79,8 @@ export default class CDragon {
 
   /**
    * watches for an update in champions
-   * 
-   * @param cdragonPatch 
+   *
+   * @param cdragonPatch
    */
   private watchChampions(cdragonPatch: any) {
     return new Promise((resolve) => {
@@ -95,8 +96,8 @@ export default class CDragon {
 
   /**
    * sets the champions of the patch as initialized
-   * 
-   * @param cdragonPatch 
+   *
+   * @param cdragonPatch
    */
   private setChampionsInitialized(cdragonPatch: string) {
     this.initialized.champions[cdragonPatch] = new Date().getTime();
@@ -104,8 +105,8 @@ export default class CDragon {
 
   /**
    * gets the raw champion data
-   * 
-   * @param cdragonPatch 
+   *
+   * @param cdragonPatch
    */
   private async getRawChampions(cdragonPatch: string) {
     return (await axios.get(urlBase + cdragonPatch + summaryLink)).data;
@@ -113,8 +114,8 @@ export default class CDragon {
 
   /**
    * gets the processed champion data
-   * 
-   * @param cdragonPatch 
+   *
+   * @param cdragonPatch
    */
   private async getProcessedChampions(cdragonPatch: string) {
     let champions = await this.getRawChampions(cdragonPatch);
@@ -122,20 +123,20 @@ export default class CDragon {
     let filteredChamps = champions.filter((champion) => {
       return (champion.id >= 1);
     });
-    
+
     return champions.map(async (champion) => {
       let { id, name, alias, roles } = champion;
       let skins = await this.getProcessedSkins(cdragonPatch, id);
-      
+
       return { id, name, key: alias, roles, skins };
     })
   }
 
   /**
    * gets the processed skins
-   * 
-   * @param cdragonPatch 
-   * @param id 
+   *
+   * @param cdragonPatch
+   * @param id
    */
   private async getProcessedSkins(cdragonPatch: string, id: any) {
     let skins = await this.getRawSkins(cdragonPatch, id);
@@ -144,9 +145,9 @@ export default class CDragon {
 
   /**
    * gets the raw skin data
-   * 
+   *
    * @param cdragonPatch
-   * @param id 
+   * @param id
    */
   private async getRawSkins(cdragonPatch: string, id: any) {
     return (await axios.get(urlBase + cdragonPatch + skinLink + id + '.json')).data.skins;
@@ -154,9 +155,9 @@ export default class CDragon {
 
   /**
    * sanitizes skins
-   * 
-   * @param skins 
-   * @param id 
+   *
+   * @param skins
+   * @param id
    */
   private sanitizeSkins(skins: any, id: any): any {
     return skins.map((skin) => {
@@ -169,13 +170,13 @@ export default class CDragon {
 
   /**
    * returns the cache configuration data
-   * 
-   * @param cdragonPatch 
+   *
+   * @param cdragonPatch
    */
   private getCacheStats(cdragonPatch: string) {
-    !this.initialized.champions[cdragonPatch] 
+    !this.initialized.champions[cdragonPatch]
       ? this.initialized.champions[cdragonPatch] = 0 : null;
-    !this.cache.champions[cdragonPatch] 
+    !this.cache.champions[cdragonPatch]
       ? this.cache.champions[cdragonPatch] = [] : null;
 
     let initialized = this.initialized.champions[cdragonPatch];

@@ -20,7 +20,7 @@ export default class RequestEntityFactory {
       let route = new Route(routeString);
       await route.init(patch);
       return route;
-    })
+    });
 
     let re = new RequestEntity(
       patch,
