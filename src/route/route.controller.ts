@@ -2,7 +2,7 @@ import { Get, Controller } from '@nestjs/common';
 import DataController from '../entity/datamanager';
 import { Urls } from '../entity/urls';
 
-@Controller('routes')
+@Controller('endpoints')
 export class RouteController {
   
   @Get()
@@ -11,7 +11,7 @@ export class RouteController {
     let cdnRoutes = [];
     
     routes.forEach(({ cdnRoute }) => {
-      let url = `${Urls.CDRAGON_RAW_BASE}:patch`;
+      let url = `${Urls.CDRAGON_CDN_BASE}:patch`;
       cdnRoute.route.forEach((slice: any) => {
         if (slice.type == 'route') {
           url += '/' + slice.value

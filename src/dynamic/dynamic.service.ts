@@ -2,7 +2,6 @@ import { Component } from '@nestjs/common';
 import RequestEntity from '../entity/requestentity';
 import DataManager from '../entity/datamanager';
 import { Types } from '../entity/routetypes';
-import CDNEntity from '../entity/cdnentity';
 import { ResponseEntity,  } from '../entity/responseentity';
 import Axios from 'axios';
 import { Urls } from '../entity/urls';
@@ -29,7 +28,7 @@ export class DynamicService {
       championKey: null,
       championId: null,
       skinId: null
-    }
+    };
     
     dataRoutes = dataRoutes.filter(
       ({ cdnRoute }) => {
@@ -42,12 +41,8 @@ export class DynamicService {
           champions)
         ) return false;
         
-        if (
-          reqEntity.getFormat() 
-          && reqEntity.getFormat() != cdnRoute.format
-        ) return false;
-        
-        return true;
+        return !(reqEntity.getFormat()
+          && reqEntity.getFormat() != cdnRoute.format);
       }
     );
     
@@ -83,7 +78,7 @@ export class DynamicService {
             );
             return true;
           case Types.SKIN_ID:
-            paramData.skinId = reqRoutes[i].segment
+            paramData.skinId = reqRoutes[i].segment;
             return true;
           case Types.ROUTE:
             return (route.value == reqRoutes[i].segment)
@@ -121,19 +116,20 @@ export class DynamicService {
 
   /**
    * returns the piped URL
-   * 
-   * @param {string[]} urls 
+   *
+   * @param {string[]} urls
+   * @param res
    */
   async pipeFile(urls: string[], res) {
     for (let i = 0; i < urls.length; i++) {
       try {
-        let { data, status } = await Axios({
+        let { data } = await Axios({
           responseType: 'stream',
           method: 'get',
           url: Urls.CDRAGON_RAW_BASE + urls[i]
-        })
+        });
         
-        res.type((urls[i].split('.')).pop())
+        res.type((urls[i].split('.')).pop());
         data.pipe(res);
         return;
       } catch(e) {}

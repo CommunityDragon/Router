@@ -11,6 +11,92 @@
         },
         {
           "type": "route",
+          "value": "square"
+        }
+      ],
+      "format": "png"
+    },
+    "raw": {
+      "returnType": "string",
+      "items": [
+        {
+          "returnType": "string",
+          "path": "/plugins",
+          "items": []
+        },
+        {
+          "items": [
+            {
+              "returnType": "jsonData",
+              "path": "/plugins/rcp-be-lol-game-data/global/default/v1/champions/:championId.json",
+              "value": ["squarePortraitPath"],
+              "replace": [
+                {
+                  "from": "lol-game-data/assets",
+                  "to": "rcp-be-lol-game-data/global/default"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "cdn": {
+      "route": [
+        {
+          "type": "route",
+          "value": "champion"
+        },
+        {
+          "type": "championId"
+        },
+        {
+          "type": "route",
+          "value": "square"
+        }
+      ],
+      "format": "png"
+    },
+    "raw": {
+      "returnType": "string",
+      "items": [
+        {
+          "returnType": "string",
+          "path": "/plugins",
+          "items": []
+        },
+        {
+          "items": [
+            {
+              "returnType": "jsonData",
+              "path": "/plugins/rcp-be-lol-game-data/global/default/v1/champions/:championId.json",
+              "value": ["squarePortraitPath"],
+              "replace": [
+                {
+                  "from": "lol-game-data/assets",
+                  "to": "rcp-be-lol-game-data/global/default"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "cdn": {
+      "route": [
+        {
+          "type": "route",
+          "value": "champion"
+        },
+        {
+          "type": "championKey"
+        },
+        {
+          "type": "route",
           "value": "data"
         }
       ],
@@ -41,6 +127,736 @@
     "raw": {
       "returnType": "string",
       "path": "/plugins/rcp-be-lol-game-data/global/default/v1/champions/:championId.json"
+    }
+  },
+  {
+    "cdn": {
+      "route": [
+        {
+          "type": "route",
+          "value": "champion"
+        },
+        {
+          "type": "championKey"
+        },
+        {
+          "type": "route",
+          "value": "splash-art"
+        }
+      ],
+      "format": "jpg"
+    },
+    "raw": {
+      "returnType": "string",
+      "items": [
+        {
+          "returnType": "string",
+          "path": "/plugins",
+          "items": []
+        },
+        {
+          "items": [
+            {
+              "returnType": "jsonData",
+              "path": "/plugins/rcp-be-lol-game-data/global/default/v1/champions/:championId.json",
+              "value": ["skins", 0, "uncenteredSplashPath"],
+              "replace": [
+                {
+                  "from": "lol-game-data/assets",
+                  "to": "rcp-be-lol-game-data/global/default"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "cdn": {
+      "route": [
+        {
+          "type": "route",
+          "value": "champion"
+        },
+        {
+          "type": "championId"
+        },
+        {
+          "type": "route",
+          "value": "splash-art"
+        }
+      ],
+      "format": "jpg"
+    },
+    "raw": {
+      "returnType": "string",
+      "items": [
+        {
+          "returnType": "string",
+          "path": "/plugins",
+          "items": []
+        },
+        {
+          "items": [
+            {
+              "returnType": "jsonData",
+              "path": "/plugins/rcp-be-lol-game-data/global/default/v1/champions/:championId.json",
+              "value": ["skins", 0, "uncenteredSplashPath"],
+              "replace": [
+                {
+                  "from": "lol-game-data/assets",
+                  "to": "rcp-be-lol-game-data/global/default"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "cdn": {
+      "route": [
+        {
+          "type": "route",
+          "value": "champion"
+        },
+        {
+          "type": "championKey"
+        },
+        {
+          "type": "route",
+          "value": "splash-art"
+        },
+        {
+          "type": "route",
+          "value": "skin"
+        },
+        {
+          "type": "skinId"
+        }
+      ],
+      "format": "jpg"
+    },
+    "raw": {
+      "returnType": "string",
+      "items": [
+        {
+          "returnType": "string",
+          "path": "/plugins",
+          "items": []
+        },
+        {
+          "items": [
+            {
+              "returnType": "jsonData",
+              "path": "/plugins/rcp-be-lol-game-data/global/default/v1/champions/:championId.json",
+              "value": [
+                "skins",
+                {
+                  "searchFor": {
+                    "key": "id",
+                    "value": ":championId * 1000 + :skinId"
+                  }
+                },
+                "uncenteredSplashPath"
+              ],
+              "replace": [
+                {
+                  "from": "lol-game-data/assets",
+                  "to": "rcp-be-lol-game-data/global/default"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "cdn": {
+      "route": [
+        {
+          "type": "route",
+          "value": "champion"
+        },
+        {
+          "type": "championId"
+        },
+        {
+          "type": "route",
+          "value": "splash-art"
+        },
+        {
+          "type": "route",
+          "value": "skin"
+        },
+        {
+          "type": "skinId"
+        }
+      ],
+      "format": "jpg"
+    },
+    "raw": {
+      "returnType": "string",
+      "items": [
+        {
+          "returnType": "string",
+          "path": "/plugins",
+          "items": []
+        },
+        {
+          "items": [
+            {
+              "returnType": "jsonData",
+              "path": "/plugins/rcp-be-lol-game-data/global/default/v1/champions/:championId.json",
+              "value": [
+                "skins",
+                {
+                  "searchFor": {
+                    "key": "id",
+                    "value": ":championId * 1000 + :skinId"
+                  }
+                },
+                "uncenteredSplashPath"
+              ],
+              "replace": [
+                {
+                  "from": "lol-game-data/assets",
+                  "to": "rcp-be-lol-game-data/global/default"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "cdn": {
+      "route": [
+        {
+          "type": "route",
+          "value": "champion"
+        },
+        {
+          "type": "championKey"
+        },
+        {
+          "type": "route",
+          "value": "splash-art"
+        },
+        {
+          "type": "route",
+          "value": "centered"
+        }
+      ],
+      "format": "jpg"
+    },
+    "raw": {
+      "returnType": "string",
+      "items": [
+        {
+          "returnType": "string",
+          "path": "/plugins",
+          "items": []
+        },
+        {
+          "items": [
+            {
+              "returnType": "jsonData",
+              "path": "/plugins/rcp-be-lol-game-data/global/default/v1/champions/:championId.json",
+              "value": ["skins", 0, "splashPath"],
+              "replace": [
+                {
+                  "from": "lol-game-data/assets",
+                  "to": "rcp-be-lol-game-data/global/default"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "cdn": {
+      "route": [
+        {
+          "type": "route",
+          "value": "champion"
+        },
+        {
+          "type": "championId"
+        },
+        {
+          "type": "route",
+          "value": "splash-art"
+        },
+        {
+          "type": "route",
+          "value": "centered"
+        }
+      ],
+      "format": "jpg"
+    },
+    "raw": {
+      "returnType": "string",
+      "items": [
+        {
+          "returnType": "string",
+          "path": "/plugins",
+          "items": []
+        },
+        {
+          "items": [
+            {
+              "returnType": "jsonData",
+              "path": "/plugins/rcp-be-lol-game-data/global/default/v1/champions/:championId.json",
+              "value": ["skins", 0, "splashPath"],
+              "replace": [
+                {
+                  "from": "lol-game-data/assets",
+                  "to": "rcp-be-lol-game-data/global/default"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "cdn": {
+      "route": [
+        {
+          "type": "route",
+          "value": "champion"
+        },
+        {
+          "type": "championKey"
+        },
+        {
+          "type": "route",
+          "value": "splash-art"
+        },
+        {
+          "type": "route",
+          "value": "centered"
+        },
+        {
+          "type": "route",
+          "value": "skin"
+        },
+        {
+          "type": "skinId"
+        }
+      ],
+      "format": "jpg"
+    },
+    "raw": {
+      "returnType": "string",
+      "items": [
+        {
+          "returnType": "string",
+          "path": "/plugins",
+          "items": []
+        },
+        {
+          "items": [
+            {
+              "returnType": "jsonData",
+              "path": "/plugins/rcp-be-lol-game-data/global/default/v1/champions/:championId.json",
+              "value": [
+                "skins",
+                {
+                  "searchFor": {
+                    "key": "id",
+                    "value": ":championId * 1000 + :skinId"
+                  }
+                },
+                "splashPath"
+              ],
+              "replace": [
+                {
+                  "from": "lol-game-data/assets",
+                  "to": "rcp-be-lol-game-data/global/default"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "cdn": {
+      "route": [
+        {
+          "type": "route",
+          "value": "champion"
+        },
+        {
+          "type": "championId"
+        },
+        {
+          "type": "route",
+          "value": "splash-art"
+        },
+        {
+          "type": "route",
+          "value": "centered"
+        },
+        {
+          "type": "route",
+          "value": "skin"
+        },
+        {
+          "type": "skinId"
+        }
+      ],
+      "format": "jpg"
+    },
+    "raw": {
+      "returnType": "string",
+      "items": [
+        {
+          "returnType": "string",
+          "path": "/plugins",
+          "items": []
+        },
+        {
+          "items": [
+            {
+              "returnType": "jsonData",
+              "path": "/plugins/rcp-be-lol-game-data/global/default/v1/champions/:championId.json",
+              "value": [
+                "skins",
+                {
+                  "searchFor": {
+                    "key": "id",
+                    "value": ":championId * 1000 + :skinId"
+                  }
+                },
+                "splashPath"
+              ],
+              "replace": [
+                {
+                  "from": "lol-game-data/assets",
+                  "to": "rcp-be-lol-game-data/global/default"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "cdn": {
+      "route": [
+        {
+          "type": "route",
+          "value": "champion"
+        },
+        {
+          "type": "championKey"
+        },
+        {
+          "type": "route",
+          "value": "champ-select"
+        },
+        {
+          "type": "route",
+          "value": "sounds"
+        },
+        {
+          "type": "route",
+          "value": "ban"
+        }
+      ],
+      "format": "jpg"
+    },
+    "raw": {
+      "returnType": "string",
+      "items": [
+        {
+          "returnType": "string",
+          "path": "/plugins",
+          "items": []
+        },
+        {
+          "items": [
+            {
+              "returnType": "jsonData",
+              "path": "/plugins/rcp-be-lol-game-data/global/default/v1/champions/:championId.json",
+              "value": ["banVoPath"],
+              "replace": [
+                {
+                  "from": "lol-game-data/assets",
+                  "to": "rcp-be-lol-game-data/global/default"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "cdn": {
+      "route": [
+        {
+          "type": "route",
+          "value": "champion"
+        },
+        {
+          "type": "championId"
+        },
+        {
+          "type": "route",
+          "value": "champ-select"
+        },
+        {
+          "type": "route",
+          "value": "sounds"
+        },
+        {
+          "type": "route",
+          "value": "ban"
+        }
+      ],
+      "format": "jpg"
+    },
+    "raw": {
+      "returnType": "string",
+      "items": [
+        {
+          "returnType": "string",
+          "path": "/plugins",
+          "items": []
+        },
+        {
+          "items": [
+            {
+              "returnType": "jsonData",
+              "path": "/plugins/rcp-be-lol-game-data/global/default/v1/champions/:championId.json",
+              "value": ["banVoPath"],
+              "replace": [
+                {
+                  "from": "lol-game-data/assets",
+                  "to": "rcp-be-lol-game-data/global/default"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "cdn": {
+      "route": [
+        {
+          "type": "route",
+          "value": "champion"
+        },
+        {
+          "type": "championKey"
+        },
+        {
+          "type": "route",
+          "value": "champ-select"
+        },
+        {
+          "type": "route",
+          "value": "sounds"
+        },
+        {
+          "type": "route",
+          "value": "choose"
+        }
+      ],
+      "format": "jpg"
+    },
+    "raw": {
+      "returnType": "string",
+      "items": [
+        {
+          "returnType": "string",
+          "path": "/plugins",
+          "items": []
+        },
+        {
+          "items": [
+            {
+              "returnType": "jsonData",
+              "path": "/plugins/rcp-be-lol-game-data/global/default/v1/champions/:championId.json",
+              "value": ["chooseVoPath"],
+              "replace": [
+                {
+                  "from": "lol-game-data/assets",
+                  "to": "rcp-be-lol-game-data/global/default"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "cdn": {
+      "route": [
+        {
+          "type": "route",
+          "value": "champion"
+        },
+        {
+          "type": "championId"
+        },
+        {
+          "type": "route",
+          "value": "champ-select"
+        },
+        {
+          "type": "route",
+          "value": "sounds"
+        },
+        {
+          "type": "route",
+          "value": "choose"
+        }
+      ],
+      "format": "jpg"
+    },
+    "raw": {
+      "returnType": "string",
+      "items": [
+        {
+          "returnType": "string",
+          "path": "/plugins",
+          "items": []
+        },
+        {
+          "items": [
+            {
+              "returnType": "jsonData",
+              "path": "/plugins/rcp-be-lol-game-data/global/default/v1/champions/:championId.json",
+              "value": ["chooseVoPath"],
+              "replace": [
+                {
+                  "from": "lol-game-data/assets",
+                  "to": "rcp-be-lol-game-data/global/default"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "cdn": {
+      "route": [
+        {
+          "type": "route",
+          "value": "champion"
+        },
+        {
+          "type": "championKey"
+        },
+        {
+          "type": "route",
+          "value": "champ-select"
+        },
+        {
+          "type": "route",
+          "value": "sounds"
+        },
+        {
+          "type": "route",
+          "value": "sfx"
+        }
+      ],
+      "format": "jpg"
+    },
+    "raw": {
+      "returnType": "string",
+      "items": [
+        {
+          "returnType": "string",
+          "path": "/plugins",
+          "items": []
+        },
+        {
+          "items": [
+            {
+              "returnType": "jsonData",
+              "path": "/plugins/rcp-be-lol-game-data/global/default/v1/champions/:championId.json",
+              "value": ["stingerSfxPath"],
+              "replace": [
+                {
+                  "from": "lol-game-data/assets",
+                  "to": "rcp-be-lol-game-data/global/default"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "cdn": {
+      "route": [
+        {
+          "type": "route",
+          "value": "champion"
+        },
+        {
+          "type": "championId"
+        },
+        {
+          "type": "route",
+          "value": "champ-select"
+        },
+        {
+          "type": "route",
+          "value": "sounds"
+        },
+        {
+          "type": "route",
+          "value": "sfx"
+        }
+      ],
+      "format": "jpg"
+    },
+    "raw": {
+      "returnType": "string",
+      "items": [
+        {
+          "returnType": "string",
+          "path": "/plugins",
+          "items": []
+        },
+        {
+          "items": [
+            {
+              "returnType": "jsonData",
+              "path": "/plugins/rcp-be-lol-game-data/global/default/v1/champions/:championId.json",
+              "value": ["stingerSfxPath"],
+              "replace": [
+                {
+                  "from": "lol-game-data/assets",
+                  "to": "rcp-be-lol-game-data/global/default"
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -141,10 +957,17 @@
         },
         {
           "type": "route",
-          "value": "square"
+          "value": "tile"
+        },
+        {
+          "type": "route",
+          "value": "skin"
+        },
+        {
+          "type": "skinId"
         }
       ],
-      "format": "png"
+      "format": "jpg"
     },
     "raw": {
       "returnType": "string",
@@ -159,7 +982,16 @@
             {
               "returnType": "jsonData",
               "path": "/plugins/rcp-be-lol-game-data/global/default/v1/champions/:championId.json",
-              "value": ["squarePortraitPath"],
+              "value": [
+                "skins",
+                {
+                  "searchFor": {
+                    "key": "id",
+                    "value": ":championId * 1000 + :skinId"
+                  }
+                },
+                "tilePath"
+              ],
               "replace": [
                 {
                   "from": "lol-game-data/assets",
@@ -184,10 +1016,17 @@
         },
         {
           "type": "route",
-          "value": "square"
+          "value": "tile"
+        },
+        {
+          "type": "route",
+          "value": "skin"
+        },
+        {
+          "type": "skinId"
         }
       ],
-      "format": "png"
+      "format": "jpg"
     },
     "raw": {
       "returnType": "string",
@@ -202,7 +1041,16 @@
             {
               "returnType": "jsonData",
               "path": "/plugins/rcp-be-lol-game-data/global/default/v1/champions/:championId.json",
-              "value": ["squarePortraitPath"],
+              "value": [
+                "skins",
+                {
+                  "searchFor": {
+                    "key": "id",
+                    "value": ":championId * 1000 + :skinId"
+                  }
+                },
+                "tilePath"
+              ],
               "replace": [
                 {
                   "from": "lol-game-data/assets",
@@ -313,7 +1161,14 @@
         },
         {
           "type": "route",
-          "value": "splash-art"
+          "value": "portrait"
+        },
+        {
+          "type": "route",
+          "value": "skin"
+        },
+        {
+          "type": "skinId"
         }
       ],
       "format": "jpg"
@@ -331,7 +1186,16 @@
             {
               "returnType": "jsonData",
               "path": "/plugins/rcp-be-lol-game-data/global/default/v1/champions/:championId.json",
-              "value": ["skins", 0, "uncenteredSplashPath"],
+              "value": [
+                "skins",
+                {
+                  "searchFor": {
+                    "key": "id",
+                    "value": ":championId * 1000 + :skinId"
+                  }
+                },
+                "loadScreenPath"
+              ],
               "replace": [
                 {
                   "from": "lol-game-data/assets",
@@ -356,7 +1220,14 @@
         },
         {
           "type": "route",
-          "value": "splash-art"
+          "value": "portrait"
+        },
+        {
+          "type": "route",
+          "value": "skin"
+        },
+        {
+          "type": "skinId"
         }
       ],
       "format": "jpg"
@@ -374,101 +1245,16 @@
             {
               "returnType": "jsonData",
               "path": "/plugins/rcp-be-lol-game-data/global/default/v1/champions/:championId.json",
-              "value": ["skins", 0, "uncenteredSplashPath"],
-              "replace": [
+              "value": [
+                "skins",
                 {
-                  "from": "lol-game-data/assets",
-                  "to": "rcp-be-lol-game-data/global/default"
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "cdn": {
-      "route": [
-        {
-          "type": "route",
-          "value": "champion"
-        },
-        {
-          "type": "championKey"
-        },
-        {
-          "type": "route",
-          "value": "splash-art"
-        },
-        {
-          "type": "route",
-          "value": "centered"
-        }
-      ],
-      "format": "jpg"
-    },
-    "raw": {
-      "returnType": "string",
-      "items": [
-        {
-          "returnType": "string",
-          "path": "/plugins",
-          "items": []
-        },
-        {
-          "items": [
-            {
-              "returnType": "jsonData",
-              "path": "/plugins/rcp-be-lol-game-data/global/default/v1/champions/:championId.json",
-              "value": ["skins", 0, "splashPath"],
-              "replace": [
-                {
-                  "from": "lol-game-data/assets",
-                  "to": "rcp-be-lol-game-data/global/default"
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "cdn": {
-      "route": [
-        {
-          "type": "route",
-          "value": "champion"
-        },
-        {
-          "type": "championId"
-        },
-        {
-          "type": "route",
-          "value": "splash-art"
-        },
-        {
-          "type": "route",
-          "value": "centered"
-        }
-      ],
-      "format": "jpg"
-    },
-    "raw": {
-      "returnType": "string",
-      "items": [
-        {
-          "returnType": "string",
-          "path": "/plugins",
-          "items": []
-        },
-        {
-          "items": [
-            {
-              "returnType": "jsonData",
-              "path": "/plugins/rcp-be-lol-game-data/global/default/v1/champions/:championId.json",
-              "value": ["skins", 0, "splashPath"],
+                  "searchFor": {
+                    "key": "id",
+                    "value": ":championId * 1000 + :skinId"
+                  }
+                },
+                "loadScreenPath"
+              ],
               "replace": [
                 {
                   "from": "lol-game-data/assets",
