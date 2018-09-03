@@ -99,14 +99,13 @@ export class ResponseEntity {
    */
   private getValue(json: any, arr: any[]) {
     let traversedJson = json;
-    if (typeof arr[0] === 'object') {
-      switch (Object.keys(arr[0])[0]) {
+    let node = arr[0]
+    if (typeof node === 'object') {
+      switch (Object.keys(node)[0]) {
         case 'searchFor':
-          let value = math.eval(
-            this.fillString(arr[0].searchFor.value)
-          );
+          let value: string = this.generateValue(node.searchFor.value);
           let foundSegment = json.find(
-            segment => segment[arr[0].searchFor.key] == value
+            segment => segment[node.searchFor.key] == value
           );
           traversedJson = foundSegment;
           break;
@@ -119,6 +118,38 @@ export class ResponseEntity {
     } else {
       return traversedJson;
     }
+  }
+
+  /**
+   * generates a search value for the mapper
+   * 
+   * @param node 
+   */
+  private generateValue(node: any) {
+    let value: string = '';
+    node.forEach(element => {
+      switch (typeof element) {
+
+        // add to string
+        case 'string':
+          value += element;
+          break;
+
+        // perform an action and add to string
+        case 'object':
+          switch (Object.keys(element)[0]) {
+
+            // eval the string into a calculation
+            case 'calc':
+              value += math.eval(
+                this.fillString(element.calc)
+              );
+              break;
+          }
+          break;
+      }
+    });
+    return value;
   }
 
   /**

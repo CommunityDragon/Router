@@ -257,7 +257,11 @@
                 {
                   "searchFor": {
                     "key": "id",
-                    "value": ":championId * 1000 + :skinId"
+                    "value": [
+                      {
+                        "calc": ":championId * 1000 + :skinId"
+                      }
+                    ]
                   }
                 },
                 "uncenteredSplashPath"
@@ -316,7 +320,11 @@
                 {
                   "searchFor": {
                     "key": "id",
-                    "value": ":championId * 1000 + :skinId"
+                    "value": [
+                      {
+                        "calc": ":championId * 1000 + :skinId"
+                      }
+                    ]
                   }
                 },
                 "uncenteredSplashPath"
@@ -473,7 +481,11 @@
                 {
                   "searchFor": {
                     "key": "id",
-                    "value": ":championId * 1000 + :skinId"
+                    "value": [
+                      {
+                        "calc": ":championId * 1000 + :skinId"
+                      }
+                    ]
                   }
                 },
                 "splashPath"
@@ -536,7 +548,11 @@
                 {
                   "searchFor": {
                     "key": "id",
-                    "value": ":championId * 1000 + :skinId"
+                    "value": [
+                      {
+                        "calc": ":championId * 1000 + :skinId"
+                      }
+                    ]
                   }
                 },
                 "splashPath"
@@ -987,7 +1003,11 @@
                 {
                   "searchFor": {
                     "key": "id",
-                    "value": ":championId * 1000 + :skinId"
+                    "value": [
+                      {
+                        "calc": ":championId * 1000 + :skinId"
+                      }
+                    ]
                   }
                 },
                 "tilePath"
@@ -1046,7 +1066,11 @@
                 {
                   "searchFor": {
                     "key": "id",
-                    "value": ":championId * 1000 + :skinId"
+                    "value": [
+                      {
+                        "calc": ":championId * 1000 + :skinId"
+                      }
+                    ]
                   }
                 },
                 "tilePath"
@@ -1191,7 +1215,11 @@
                 {
                   "searchFor": {
                     "key": "id",
-                    "value": ":championId * 1000 + :skinId"
+                    "value": [
+                      {
+                        "calc": ":championId * 1000 + :skinId"
+                      }
+                    ]
                   }
                 },
                 "loadScreenPath"
@@ -1250,7 +1278,11 @@
                 {
                   "searchFor": {
                     "key": "id",
-                    "value": ":championId * 1000 + :skinId"
+                    "value": [
+                      {
+                        "calc": ":championId * 1000 + :skinId"
+                      }
+                    ]
                   }
                 },
                 "loadScreenPath"
