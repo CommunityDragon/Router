@@ -1298,5 +1298,653 @@
         }
       ]
     }
+  },
+  {
+    "cdn": {
+      "route": [
+        {
+          "type": "route",
+          "value": "champion"
+        },
+        {
+          "type": "championKey"
+        },
+        {
+          "type": "route",
+          "value": "ability-icon"
+        },
+        {
+          "type": "route",
+          "value": "passive"
+        }
+      ],
+      "format": "png"
+    },
+    "raw": {
+      "returnType": "string",
+      "items": [
+        {
+          "returnType": "string",
+          "path": "/plugins",
+          "items": []
+        },
+        {
+          "items": [
+            {
+              "returnType": "jsonData",
+              "path": "/plugins/rcp-be-lol-game-data/global/default/v1/champions/:championId.json",
+              "value": [
+                "passive",
+                "abilityIconPath"
+              ],
+              "replace": [
+                {
+                  "from": "lol-game-data/assets",
+                  "to": "rcp-be-lol-game-data/global/default"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "cdn": {
+      "route": [
+        {
+          "type": "route",
+          "value": "champion"
+        },
+        {
+          "type": "championId"
+        },
+        {
+          "type": "route",
+          "value": "ability-icon"
+        },
+        {
+          "type": "route",
+          "value": "passive"
+        }
+      ],
+      "format": "png"
+    },
+    "raw": {
+      "returnType": "string",
+      "items": [
+        {
+          "returnType": "string",
+          "path": "/plugins",
+          "items": []
+        },
+        {
+          "items": [
+            {
+              "returnType": "jsonData",
+              "path": "/plugins/rcp-be-lol-game-data/global/default/v1/champions/:championId.json",
+              "value": [
+                "passive",
+                "abilityIconPath"
+              ],
+              "replace": [
+                {
+                  "from": "lol-game-data/assets",
+                  "to": "rcp-be-lol-game-data/global/default"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "cdn": {
+      "route": [
+        {
+          "type": "route",
+          "value": "champion"
+        },
+        {
+          "type": "championKey"
+        },
+        {
+          "type": "route",
+          "value": "ability-icon"
+        },
+        {
+          "type": "route",
+          "value": "p"
+        }
+      ],
+      "format": "png"
+    },
+    "raw": {
+      "returnType": "string",
+      "items": [
+        {
+          "returnType": "string",
+          "path": "/plugins",
+          "items": []
+        },
+        {
+          "items": [
+            {
+              "returnType": "jsonData",
+              "path": "/plugins/rcp-be-lol-game-data/global/default/v1/champions/:championId.json",
+              "value": [
+                "passive",
+                "abilityIconPath"
+              ],
+              "replace": [
+                {
+                  "from": "lol-game-data/assets",
+                  "to": "rcp-be-lol-game-data/global/default"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "cdn": {
+      "route": [
+        {
+          "type": "route",
+          "value": "champion"
+        },
+        {
+          "type": "championId"
+        },
+        {
+          "type": "route",
+          "value": "ability-icon"
+        },
+        {
+          "type": "route",
+          "value": "p"
+        }
+      ],
+      "format": "png"
+    },
+    "raw": {
+      "returnType": "string",
+      "items": [
+        {
+          "returnType": "string",
+          "path": "/plugins",
+          "items": []
+        },
+        {
+          "items": [
+            {
+              "returnType": "jsonData",
+              "path": "/plugins/rcp-be-lol-game-data/global/default/v1/champions/:championId.json",
+              "value": [
+                "passive",
+                "abilityIconPath"
+              ],
+              "replace": [
+                {
+                  "from": "lol-game-data/assets",
+                  "to": "rcp-be-lol-game-data/global/default"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "cdn": {
+      "route": [
+        {
+          "type": "route",
+          "value": "champion"
+        },
+        {
+          "type": "championKey"
+        },
+        {
+          "type": "route",
+          "value": "ability-icon"
+        },
+        {
+          "type": "route",
+          "value": "q"
+        }
+      ],
+      "format": "png"
+    },
+    "raw": {
+      "returnType": "string",
+      "items": [
+        {
+          "returnType": "string",
+          "path": "/plugins",
+          "items": []
+        },
+        {
+          "items": [
+            {
+              "returnType": "jsonData",
+              "path": "/plugins/rcp-be-lol-game-data/global/default/v1/champions/:championId.json",
+              "value": [
+                "spells",
+                {
+                  "searchFor": {
+                    "key": "spellKey",
+                    "value": ["q"]
+                  }
+                },
+                "abilityIconPath"
+              ],
+              "replace": [
+                {
+                  "from": "lol-game-data/assets",
+                  "to": "rcp-be-lol-game-data/global/default"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "cdn": {
+      "route": [
+        {
+          "type": "route",
+          "value": "champion"
+        },
+        {
+          "type": "championId"
+        },
+        {
+          "type": "route",
+          "value": "ability-icon"
+        },
+        {
+          "type": "route",
+          "value": "q"
+        }
+      ],
+      "format": "png"
+    },
+    "raw": {
+      "returnType": "string",
+      "items": [
+        {
+          "returnType": "string",
+          "path": "/plugins",
+          "items": []
+        },
+        {
+          "items": [
+            {
+              "returnType": "jsonData",
+              "path": "/plugins/rcp-be-lol-game-data/global/default/v1/champions/:championId.json",
+              "value": [
+                "spells",
+                {
+                  "searchFor": {
+                    "key": "spellKey",
+                    "value": ["q"]
+                  }
+                },
+                "abilityIconPath"
+              ],
+              "replace": [
+                {
+                  "from": "lol-game-data/assets",
+                  "to": "rcp-be-lol-game-data/global/default"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "cdn": {
+      "route": [
+        {
+          "type": "route",
+          "value": "champion"
+        },
+        {
+          "type": "championKey"
+        },
+        {
+          "type": "route",
+          "value": "ability-icon"
+        },
+        {
+          "type": "route",
+          "value": "w"
+        }
+      ],
+      "format": "png"
+    },
+    "raw": {
+      "returnType": "string",
+      "items": [
+        {
+          "returnType": "string",
+          "path": "/plugins",
+          "items": []
+        },
+        {
+          "items": [
+            {
+              "returnType": "jsonData",
+              "path": "/plugins/rcp-be-lol-game-data/global/default/v1/champions/:championId.json",
+              "value": [
+                "spells",
+                {
+                  "searchFor": {
+                    "key": "spellKey",
+                    "value": ["w"]
+                  }
+                },
+                "abilityIconPath"
+              ],
+              "replace": [
+                {
+                  "from": "lol-game-data/assets",
+                  "to": "rcp-be-lol-game-data/global/default"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "cdn": {
+      "route": [
+        {
+          "type": "route",
+          "value": "champion"
+        },
+        {
+          "type": "championId"
+        },
+        {
+          "type": "route",
+          "value": "ability-icon"
+        },
+        {
+          "type": "route",
+          "value": "w"
+        }
+      ],
+      "format": "png"
+    },
+    "raw": {
+      "returnType": "string",
+      "items": [
+        {
+          "returnType": "string",
+          "path": "/plugins",
+          "items": []
+        },
+        {
+          "items": [
+            {
+              "returnType": "jsonData",
+              "path": "/plugins/rcp-be-lol-game-data/global/default/v1/champions/:championId.json",
+              "value": [
+                "spells",
+                {
+                  "searchFor": {
+                    "key": "spellKey",
+                    "value": ["w"]
+                  }
+                },
+                "abilityIconPath"
+              ],
+              "replace": [
+                {
+                  "from": "lol-game-data/assets",
+                  "to": "rcp-be-lol-game-data/global/default"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "cdn": {
+      "route": [
+        {
+          "type": "route",
+          "value": "champion"
+        },
+        {
+          "type": "championKey"
+        },
+        {
+          "type": "route",
+          "value": "ability-icon"
+        },
+        {
+          "type": "route",
+          "value": "e"
+        }
+      ],
+      "format": "png"
+    },
+    "raw": {
+      "returnType": "string",
+      "items": [
+        {
+          "returnType": "string",
+          "path": "/plugins",
+          "items": []
+        },
+        {
+          "items": [
+            {
+              "returnType": "jsonData",
+              "path": "/plugins/rcp-be-lol-game-data/global/default/v1/champions/:championId.json",
+              "value": [
+                "spells",
+                {
+                  "searchFor": {
+                    "key": "spellKey",
+                    "value": ["e"]
+                  }
+                },
+                "abilityIconPath"
+              ],
+              "replace": [
+                {
+                  "from": "lol-game-data/assets",
+                  "to": "rcp-be-lol-game-data/global/default"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "cdn": {
+      "route": [
+        {
+          "type": "route",
+          "value": "champion"
+        },
+        {
+          "type": "championId"
+        },
+        {
+          "type": "route",
+          "value": "ability-icon"
+        },
+        {
+          "type": "route",
+          "value": "e"
+        }
+      ],
+      "format": "png"
+    },
+    "raw": {
+      "returnType": "string",
+      "items": [
+        {
+          "returnType": "string",
+          "path": "/plugins",
+          "items": []
+        },
+        {
+          "items": [
+            {
+              "returnType": "jsonData",
+              "path": "/plugins/rcp-be-lol-game-data/global/default/v1/champions/:championId.json",
+              "value": [
+                "spells",
+                {
+                  "searchFor": {
+                    "key": "spellKey",
+                    "value": ["e"]
+                  }
+                },
+                "abilityIconPath"
+              ],
+              "replace": [
+                {
+                  "from": "lol-game-data/assets",
+                  "to": "rcp-be-lol-game-data/global/default"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "cdn": {
+      "route": [
+        {
+          "type": "route",
+          "value": "champion"
+        },
+        {
+          "type": "championKey"
+        },
+        {
+          "type": "route",
+          "value": "ability-icon"
+        },
+        {
+          "type": "route",
+          "value": "r"
+        }
+      ],
+      "format": "png"
+    },
+    "raw": {
+      "returnType": "string",
+      "items": [
+        {
+          "returnType": "string",
+          "path": "/plugins",
+          "items": []
+        },
+        {
+          "items": [
+            {
+              "returnType": "jsonData",
+              "path": "/plugins/rcp-be-lol-game-data/global/default/v1/champions/:championId.json",
+              "value": [
+                "spells",
+                {
+                  "searchFor": {
+                    "key": "spellKey",
+                    "value": ["r"]
+                  }
+                },
+                "abilityIconPath"
+              ],
+              "replace": [
+                {
+                  "from": "lol-game-data/assets",
+                  "to": "rcp-be-lol-game-data/global/default"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "cdn": {
+      "route": [
+        {
+          "type": "route",
+          "value": "champion"
+        },
+        {
+          "type": "championId"
+        },
+        {
+          "type": "route",
+          "value": "ability-icon"
+        },
+        {
+          "type": "route",
+          "value": "r"
+        }
+      ],
+      "format": "png"
+    },
+    "raw": {
+      "returnType": "string",
+      "items": [
+        {
+          "returnType": "string",
+          "path": "/plugins",
+          "items": []
+        },
+        {
+          "items": [
+            {
+              "returnType": "jsonData",
+              "path": "/plugins/rcp-be-lol-game-data/global/default/v1/champions/:championId.json",
+              "value": [
+                "spells",
+                {
+                  "searchFor": {
+                    "key": "spellKey",
+                    "value": ["r"]
+                  }
+                },
+                "abilityIconPath"
+              ],
+              "replace": [
+                {
+                  "from": "lol-game-data/assets",
+                  "to": "rcp-be-lol-game-data/global/default"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
   }
 ]
