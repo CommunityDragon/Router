@@ -1946,5 +1946,294 @@
         }
       ]
     }
+  },
+  {
+    "cdn": {
+      "route": [
+        {
+          "type": "route",
+          "value": "honor"
+        },
+        {
+          "type": "route",
+          "value": "generic"
+        }
+      ],
+      "format": "png"
+    },
+    "raw": {
+      "returnType": "string",
+      "path": "/plugins/rcp-fe-lol-honor/global/default/assets/profile/emblem_generic.png"
+    }
+  },
+  {
+    "cdn": {
+      "route": [
+        {
+          "type": "route",
+          "value": "honor"
+        },
+        {
+          "type": "genericId",
+          "identifier": "honorId"
+        }
+      ],
+      "format": "png"
+    },
+    "raw": {
+      "returnType": "array",
+      "items": [
+        {
+          "returnType": "string",
+          "path": "/plugins/rcp-fe-lol-honor/global/default/assets/profile/emblem_:honorId.png"
+        },
+        {
+          "returnType": "string",
+          "path": "/plugins/rcp-fe-lol-honor/global/default/assets/profile/emblem_:honorId-0.png"
+        }
+      ]
+    }
+  },
+  {
+    "cdn": {
+      "route": [
+        {
+          "type": "route",
+          "value": "honor"
+        },
+        {
+          "type": "genericId",
+          "identifier": "honorId"
+        },
+        {
+          "type": "route",
+          "value": "locked"
+        }
+      ],
+      "format": "png"
+    },
+    "raw": {
+      "returnType": "string",
+      "path": "/plugins/rcp-fe-lol-honor/global/default/assets/profile/emblem_:honorId_locked.png"
+    }
+  },
+  {
+    "cdn": {
+      "route": [
+        {
+          "type": "route",
+          "value": "honor"
+        },
+        {
+          "type": "genericId",
+          "identifier": "honorId"
+        },
+        {
+          "type": "route",
+          "value": "level"
+        },
+        {
+          "type": "genericId",
+          "identifier": "level"
+        }
+      ],
+      "format": "png"
+    },
+    "raw": {
+      "returnType": "array",
+      "items": [
+        {
+          "returnType": "string",
+          "path": "/plugins/rcp-fe-lol-honor/global/default/assets/profile/emblem_:honorId.png"
+        },
+        {
+          "returnType": "string",
+          "path": "/plugins/rcp-fe-lol-honor/global/default/assets/profile/emblem_:honorId-:level.png"
+        }
+      ]
+    }
+  },
+  {
+    "cdn": {
+      "route": [
+        {
+          "type": "route",
+          "value": "honor"
+        },
+        {
+          "type": "route",
+          "value": "emblem"
+        },
+        {
+          "type": "route",
+          "value": "generic"
+        }
+      ],
+      "format": "png"
+    },
+    "raw": {
+      "returnType": "string",
+      "path": "/plugins/rcp-fe-lol-honor/global/default/assets/profile/emblem_generic.png"
+    }
+  },
+  {
+    "cdn": {
+      "route": [
+        {
+          "type": "route",
+          "value": "honor"
+        },
+        {
+          "type": "route",
+          "value": "emblem"
+        },
+        {
+          "type": "genericId",
+          "identifier": "honorId"
+        }
+      ],
+      "format": "png"
+    },
+    "raw": {
+      "returnType": "array",
+      "items": [
+        {
+          "returnType": "string",
+          "path": "/plugins/rcp-fe-lol-honor/global/default/assets/profile/emblem_:honorId.png"
+        },
+        {
+          "returnType": "string",
+          "path": "/plugins/rcp-fe-lol-honor/global/default/assets/profile/emblem_:honorId-0.png"
+        }
+      ]
+    }
+  },
+  {
+    "cdn": {
+      "route": [
+        {
+          "type": "route",
+          "value": "honor"
+        },
+        {
+          "type": "route",
+          "value": "emblem"
+        },
+        {
+          "type": "genericId",
+          "identifier": "honorId"
+        },
+        {
+          "type": "route",
+          "value": "locked"
+        }
+      ],
+      "format": "png"
+    },
+    "raw": {
+      "returnType": "string",
+      "path": "/plugins/rcp-fe-lol-honor/global/default/assets/profile/emblem_:honorId_locked.png"
+    }
+  },
+  {
+    "cdn": {
+      "route": [
+        {
+          "type": "route",
+          "value": "honor"
+        },
+        {
+          "type": "route",
+          "value": "emblem"
+        },
+        {
+          "type": "genericId",
+          "identifier": "honorId"
+        },
+        {
+          "type": "route",
+          "value": "level"
+        },
+        {
+          "type": "genericId",
+          "identifier": "level"
+        }
+      ],
+      "format": "png"
+    },
+    "raw": {
+      "returnType": "array",
+      "items": [
+        {
+          "returnType": "string",
+          "path": "/plugins/rcp-fe-lol-honor/global/default/assets/profile/emblem_:honorId.png"
+        },
+        {
+          "returnType": "string",
+          "path": "/plugins/rcp-fe-lol-honor/global/default/assets/profile/emblem_:honorId-:level.png"
+        }
+      ]
+    }
+  },
+  {
+    "cdn": {
+      "route": [
+        {
+          "type": "route",
+          "value": "ward"
+        },
+        {
+          "type": "genericId",
+          "identifier": "wardId"
+        }
+      ],
+      "format": "png"
+    },
+    "raw": {
+      "returnType": "string",
+      "path": "/plugins/rcp-be-lol-game-data/global/default/content/src/leagueclient/wardskinimages/wardhero_:wardId.png"
+    }
+  },
+  {
+    "cdn": {
+      "route": [
+        {
+          "type": "route",
+          "value": "ward"
+        },
+        {
+          "type": "genericId",
+          "identifier": "wardId"
+        },
+        {
+          "type": "route",
+          "value": "shadow"
+        }
+      ],
+      "format": "png"
+    },
+    "raw": {
+      "returnType": "string",
+      "path": "/plugins/rcp-be-lol-game-data/global/default/content/src/leagueclient/wardskinimages/wardheroshadow_:wardId.png"
+    }
+  },
+  {
+    "cdn": {
+      "route": [
+        {
+          "type": "route",
+          "value": "profile-icon"
+        },
+        {
+          "type": "genericId",
+          "identifier": "profileIconId"
+        }
+      ],
+      "format": "jpg"
+    },
+    "raw": {
+      "returnType": "string",
+      "path": "/plugins/rcp-be-lol-game-data/global/default/v1/profile-icons/:profileIconId.jpg"
+    }
   }
 ]

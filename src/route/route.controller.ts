@@ -16,7 +16,8 @@ export class RouteController {
         if (slice.type == 'route') {
           url += '/' + slice.value
         } else {
-          url += `/:${slice.type}`
+          url += `/:${slice.type == 'genericId'
+            ? slice.identifier : slice.type}`
         }
       });
       cdnRoutes.push(url)

@@ -1,6 +1,7 @@
-import {Urls} from "./urls";
-import Axios from "axios";
 import * as math from "mathjs";
+import { Urls } from "./urls";
+import Axios from "axios";
+import GenericID from './genericid';
 
 const CDRAGON_RAW_BASE = Urls.CDRAGON_RAW_BASE;
 
@@ -43,8 +44,17 @@ export class ResponseEntity {
   /**
    * Gets the response entity URL
    */
-  async getUrl(): Promise<string> {
+  async getUrl(): Promise<(string|string[])> {
     let path = await this.getPath();
+
+    if (this.returnType == 'array') {
+      if (!this.first) {
+        throw "configuration invalid, array can't be a starting value";
+      } else {
+        return path.map(pathOption => this.patch + pathOption)
+      }
+    };
+
     let url = `${this.first ? this.patch : ''}${path}`;
 
     for (let i = 0; i < this.items.length; i++) {
@@ -66,6 +76,10 @@ export class ResponseEntity {
         let reqData = (await Axios.get(reqUrl)).data;
         path = this.getValue(reqData, this.value.concat());
         break;
+      case 'array':
+        return Promise.all(
+          this.items.map(async (item) => await item.getPath())
+        );
     }
     return this.changePath(path);
   }
@@ -78,6 +92,11 @@ export class ResponseEntity {
       .replace(':championKey', this.parameterData.championKey)
       .replace(':championId', `${this.parameterData.championId}`)
       .replace(':skinId', `${this.parameterData.skinId}`);
+    
+    this.parameterData.genericIds.forEach(genericId => {
+      path = path.replace(`:${genericId.identifier}`, `${genericId.value}`);
+    });
+
     return path;
   }
 
@@ -85,10 +104,16 @@ export class ResponseEntity {
    * Fills the path with data
    */
   private fillString(path): string {
-    return path
+    let newPath = path
       .replace(':championKey', this.parameterData.championKey)
       .replace(':championId', `${this.parameterData.championId}`)
       .replace(':skinId', `${this.parameterData.skinId}`);
+
+    this.parameterData.genericIds.forEach(genericId => {
+      newPath = newPath.replace(':' + genericId.identifier, `${genericId.value}`);
+    });
+
+    return newPath;
   }
 
   /**
@@ -184,7 +209,7 @@ class Replacement {
  * Holds the parameter data from the request url
  */
 class ParameterData {
-  genericIds: number[] = [];
+  genericIds: GenericID[] = [];
   championKey: string = null;
   championId: number = null;
   skinId: number = null;

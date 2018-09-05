@@ -1,6 +1,7 @@
 import { Component } from '@nestjs/common';
 import RequestEntity from '../entity/requestentity';
 import DataManager from '../entity/datamanager';
+import GenericID from '../entity/genericid';
 import { Types } from '../entity/routetypes';
 import { ResponseEntity,  } from '../entity/responseentity';
 import Axios from 'axios';
@@ -25,6 +26,7 @@ export class DynamicService {
     let segmentLength = reqRoutes.length;
     
     let paramData = {
+      genericIds: [],
       championKey: null,
       championId: null,
       skinId: null
@@ -45,12 +47,21 @@ export class DynamicService {
           && reqEntity.getFormat() != cdnRoute.format);
       }
     );
-    
-    return await Promise.all(dataRoutes.map(async (x) => {
-      return await (
+
+    let urls = [];
+
+    for (let i = 0; i < dataRoutes.length; i++) {
+      const x = dataRoutes[i];
+
+      let value = await (
         new ResponseEntity(x.rawRoute, reqEntity.getPatch().getCDragonPatch(), paramData)
       ).getUrl();
-    })) 
+
+      if (typeof value == 'string') urls.push(value);
+      else value.forEach(url => { urls.push(url) }); 
+    }
+
+    return Promise.all(urls);
   }
 
   /**
@@ -79,6 +90,9 @@ export class DynamicService {
             return true;
           case Types.SKIN_ID:
             paramData.skinId = reqRoutes[i].segment;
+            return true;
+          case Types.GENERIC_ID:
+            paramData.genericIds.push(new GenericID(reqRoutes[i].segment, route.identifier))
             return true;
           case Types.ROUTE:
             return (route.value == reqRoutes[i].segment)
