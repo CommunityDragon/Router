@@ -42,7 +42,7 @@ export default class Patch {
       return this.value;
     } else {
       let cdragonValue = (this.value.split('.', 2)).join('.');
-      if (this.cdragonPatches.includes(cdragonValue)) {
+      if (this.cdragonPatches.indexOf(cdragonValue) !< 0) {
         return cdragonValue
       } else return this.cdragonPatches[0];
     }
