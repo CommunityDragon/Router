@@ -21,6 +21,7 @@ export class PatchCheckerMiddleware implements NestMiddleware {
       }
       
       lolPatch = new Patch({ type: patchType, value: patchString });
+      await lolPatch.load();
       
       if (!await this.patchService.verifyPatch(lolPatch)) {
         throw new InvalidPatchException(patchString);
