@@ -23,7 +23,7 @@ export default class Patch {
   }
 
   public async load() {
-    let patches = (await Axios.get('http://raw.json.communitydragon.org/')).data
+    let patches = (await Axios.get('https://raw.communitydragon.org/json/')).data
     .filter(entry => entry.type == 'directory' && !isNaN(entry.name[0]))
       .map(entry => entry.name)
       .sort((a, b) => versionCompare(a, b, null))
