@@ -1,11 +1,11 @@
-import { Component } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import axios from 'axios';
 import DDragon from '../entity/ddragon'
 import Patch from '../entity/patch';
 
 const ddragon = DDragon.getInstance();
 
-@Component()
+@Injectable()
 export class PatchService {
   
   async verifyPatch(patch: Patch): Promise<boolean> {

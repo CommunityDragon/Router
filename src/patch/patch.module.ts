@@ -4,7 +4,7 @@ import { PatchController } from './patch.controller';
 
 @Module({
   controllers: [PatchController],
-  components: [PatchService],
+  providers: [PatchService],
 })
 
 export class PatchModule {}

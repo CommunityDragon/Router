@@ -1,11 +1,10 @@
-import { Component } from '@nestjs/common';
-import axios from 'axios';
-import CDragon from '../entity/cdragon'
+import { Injectable } from '@nestjs/common';
+import CDragon from '../entity/cdragon';
 import Patch from '../entity/patch';
 
 const cdragon = CDragon.getInstance();
 
-@Component()
+@Injectable()
 export class ChampionService {
 
   /**

@@ -6,4 +6,3 @@ import { RouteController } from './route.controller';
 })
 
 export class RouteModule {}
-  

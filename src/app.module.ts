@@ -5,7 +5,6 @@ import { ChampionModule } from './champion/champion.module';
 import { RouteModule } from './route/route.module';
 import { HomeModule } from './home/home.module';
 
-
 @Module({
   imports: [
     ChampionModule,
@@ -14,8 +13,6 @@ import { HomeModule } from './home/home.module';
     RouteModule,
     HomeModule,
   ],
-  controllers: [],
-  components: [],
 })
 
 export class ApplicationModule {}

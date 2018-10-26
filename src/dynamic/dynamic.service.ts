@@ -1,4 +1,4 @@
-import { Component } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import RequestEntity from '../entity/requestentity';
 import DataManager from '../entity/datamanager';
 import GenericID from '../entity/genericid';
@@ -11,14 +11,14 @@ import CDragon from '../entity/cdragon';
 const cdragon = CDragon.getInstance();
 const dataManager = DataManager.getInstance();
 
-@Component()
+@Injectable()
 export class DynamicService {
-  
+
   /**
-  * Filters the CDN entities to only get the ones matching with the Request entity
-  * 
-  * @param reqEntity 
-  */
+   * Filters the CDN entities to only get the ones matching with the Request entity
+   *
+   * @param reqEntity
+   */
   async filterCDNEntities(reqEntity: RequestEntity): Promise<any[]> {
     let champions = await cdragon.getChampions(reqEntity.getPatch());
     let reqRoutes = reqEntity.getRoutes();

@@ -6,4 +6,3 @@ import { HomeController } from './home.controller';
 })
 
 export class HomeModule {}
-  

@@ -1,13 +1,13 @@
-import { Middleware, NestMiddleware, ExpressMiddleware } from '@nestjs/common';
+import { NestMiddleware, MiddlewareFunction, Injectable } from '@nestjs/common';
 import Patch from '../../entity/patch';
 import { PatchService } from '../../patch/patch.service';
 import { InvalidPatchException } from '../exception/patch.exception';
 
-@Middleware()
+@Injectable()
 export class PatchCheckerMiddleware implements NestMiddleware {
   constructor(private patchService: PatchService) {}
   
-  async resolve(patchType: string): Promise<ExpressMiddleware> {
+  async resolve(patchType: string): Promise<MiddlewareFunction> {
     return async (req, res, next) => {
       const { version, patch, fix, route } = req.params;
       let patchString: string;
