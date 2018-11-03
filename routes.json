@@ -1,5 +1,7 @@
 [
   {
+    "category": "Champion",
+    "name": "Square Icon",
     "cdn": {
       "route": [
         {
@@ -43,6 +45,8 @@
     }
   },
   {
+    "category": "Champion",
+    "name": "Square Icon",
     "cdn": {
       "route": [
         {
@@ -86,6 +90,8 @@
     }
   },
   {
+    "category": "Champion",
+    "name": "Champion Data",
     "cdn": {
       "route": [
         {
@@ -108,6 +114,8 @@
     }
   },
   {
+    "category": "Champion",
+    "name": "Champion Data",
     "cdn": {
       "route": [
         {
@@ -130,6 +138,8 @@
     }
   },
   {
+    "category": "Champion",
+    "name": "Base Splash Art",
     "cdn": {
       "route": [
         {
@@ -173,6 +183,8 @@
     }
   },
   {
+    "category": "Champion",
+    "name": "Base Splash Art",
     "cdn": {
       "route": [
         {
@@ -216,6 +228,8 @@
     }
   },
   {
+    "category": "Champion",
+    "name": "Splash Art with Skin",
     "cdn": {
       "route": [
         {
@@ -279,6 +293,8 @@
     }
   },
   {
+    "category": "Champion",
+    "name": "Splash Art with Skin",
     "cdn": {
       "route": [
         {
@@ -342,6 +358,8 @@
     }
   },
   {
+    "category": "Champion",
+    "name": "Base Centered Splash Art",
     "cdn": {
       "route": [
         {
@@ -389,6 +407,8 @@
     }
   },
   {
+    "category": "Champion",
+    "name": "Base Centered Splash Art",
     "cdn": {
       "route": [
         {
@@ -436,6 +456,8 @@
     }
   },
   {
+    "category": "Champion",
+    "name": "Centered Splash Art with Skin",
     "cdn": {
       "route": [
         {
@@ -503,6 +525,8 @@
     }
   },
   {
+    "category": "Champion",
+    "name": "Centered Splash Art with Skin",
     "cdn": {
       "route": [
         {
@@ -570,6 +594,8 @@
     }
   },
   {
+    "category": "Champion Select",
+    "name": "Ban Sound",
     "cdn": {
       "route": [
         {
@@ -621,6 +647,8 @@
     }
   },
   {
+    "category": "Champion Select",
+    "name": "Ban Sound",
     "cdn": {
       "route": [
         {
@@ -672,6 +700,8 @@
     }
   },
   {
+    "category": "Champion Select",
+    "name": "Lock-in Sound",
     "cdn": {
       "route": [
         {
@@ -723,6 +753,8 @@
     }
   },
   {
+    "category": "Champion Select",
+    "name": "Lock-in Sound",
     "cdn": {
       "route": [
         {
@@ -774,6 +806,8 @@
     }
   },
   {
+    "category": "Champion Select",
+    "name": "Background Sound",
     "cdn": {
       "route": [
         {
@@ -825,6 +859,8 @@
     }
   },
   {
+    "category": "Champion Select",
+    "name": "Background Sound",
     "cdn": {
       "route": [
         {
@@ -876,6 +912,8 @@
     }
   },
   {
+    "category": "Champion",
+    "name": "Base Tile",
     "cdn": {
       "route": [
         {
@@ -919,6 +957,8 @@
     }
   },
   {
+    "category": "Champion",
+    "name": "Base Tile",
     "cdn": {
       "route": [
         {
@@ -962,6 +1002,8 @@
     }
   },
   {
+    "category": "Champion",
+    "name": "Tile with Skin",
     "cdn": {
       "route": [
         {
@@ -1025,6 +1067,8 @@
     }
   },
   {
+    "category": "Champion",
+    "name": "Tile with Skin",
     "cdn": {
       "route": [
         {
@@ -1088,6 +1132,8 @@
     }
   },
   {
+    "category": "Champion",
+    "name": "Base Portrait",
     "cdn": {
       "route": [
         {
@@ -1131,6 +1177,8 @@
     }
   },
   {
+    "category": "Champion",
+    "name": "Base Portrait",
     "cdn": {
       "route": [
         {
@@ -1174,6 +1222,8 @@
     }
   },
   {
+    "category": "Champion",
+    "name": "Portrait with Skin",
     "cdn": {
       "route": [
         {
@@ -1237,6 +1287,8 @@
     }
   },
   {
+    "category": "Champion",
+    "name": "Portrait with Skin",
     "cdn": {
       "route": [
         {
@@ -1300,6 +1352,8 @@
     }
   },
   {
+    "category": "Champion",
+    "name": "Passive Icon",
     "cdn": {
       "route": [
         {
@@ -1350,6 +1404,8 @@
     }
   },
   {
+    "category": "Champion",
+    "name": "Passive Icon",
     "cdn": {
       "route": [
         {
@@ -1400,6 +1456,8 @@
     }
   },
   {
+    "category": "Champion",
+    "name": "Passive Icon",
     "cdn": {
       "route": [
         {
@@ -1450,6 +1508,8 @@
     }
   },
   {
+    "category": "Champion",
+    "name": "Passive Icon",
     "cdn": {
       "route": [
         {
@@ -1500,6 +1560,8 @@
     }
   },
   {
+    "category": "Champion",
+    "name": "Q Ability Icon",
     "cdn": {
       "route": [
         {
@@ -1556,6 +1618,8 @@
     }
   },
   {
+    "category": "Champion",
+    "name": "Q Ability Icon",
     "cdn": {
       "route": [
         {
@@ -1612,6 +1676,8 @@
     }
   },
   {
+    "category": "Champion",
+    "name": "W Ability Icon",
     "cdn": {
       "route": [
         {
@@ -1668,6 +1734,8 @@
     }
   },
   {
+    "category": "Champion",
+    "name": "W Ability Icon",
     "cdn": {
       "route": [
         {
@@ -1724,6 +1792,8 @@
     }
   },
   {
+    "category": "Champion",
+    "name": "E Ability Icon",
     "cdn": {
       "route": [
         {
@@ -1780,6 +1850,8 @@
     }
   },
   {
+    "category": "Champion",
+    "name": "E Ability Icon",
     "cdn": {
       "route": [
         {
@@ -1836,6 +1908,8 @@
     }
   },
   {
+    "category": "Champion",
+    "name": "Ultimate Ability Icon",
     "cdn": {
       "route": [
         {
@@ -1892,6 +1966,8 @@
     }
   },
   {
+    "category": "Champion",
+    "name": "Ultimate Ability Icon",
     "cdn": {
       "route": [
         {
@@ -1948,6 +2024,8 @@
     }
   },
   {
+    "category": "Summoner",
+    "name": "Honor Emblem Placeholder (Deprecated)",
     "cdn": {
       "route": [
         {
@@ -1967,6 +2045,8 @@
     }
   },
   {
+    "category": "Summoner",
+    "name": "Honor Emblem (Deprecated)",
     "cdn": {
       "route": [
         {
@@ -1995,6 +2075,8 @@
     }
   },
   {
+    "category": "Summoner",
+    "name": "Locked Honor Emblem (Deprecated)",
     "cdn": {
       "route": [
         {
@@ -2018,6 +2100,8 @@
     }
   },
   {
+    "category": "Summoner",
+    "name": "Honor Emblem with Checkpoints (Deprecated)",
     "cdn": {
       "route": [
         {
@@ -2054,6 +2138,8 @@
     }
   },
   {
+    "category": "Summoner",
+    "name": "Honor Emblem Placeholder",
     "cdn": {
       "route": [
         {
@@ -2077,6 +2163,8 @@
     }
   },
   {
+    "category": "Summoner",
+    "name": "Honor Emblem",
     "cdn": {
       "route": [
         {
@@ -2109,6 +2197,8 @@
     }
   },
   {
+    "category": "Summoner",
+    "name": "Locked Honor Emblem",
     "cdn": {
       "route": [
         {
@@ -2136,6 +2226,8 @@
     }
   },
   {
+    "category": "Summoner",
+    "name": "Honor Emblem with Checkpoints",
     "cdn": {
       "route": [
         {
@@ -2176,6 +2268,8 @@
     }
   },
   {
+    "category": "Game",
+    "name": "Ward Icon",
     "cdn": {
       "route": [
         {
@@ -2195,6 +2289,8 @@
     }
   },
   {
+    "category": "Game",
+    "name": "Ward Shadow",
     "cdn": {
       "route": [
         {
@@ -2218,6 +2314,8 @@
     }
   },
   {
+    "category": "Summoner",
+    "name": "Profile Icon",
     "cdn": {
       "route": [
         {
