@@ -9,7 +9,7 @@ import { DynamicService } from './dynamic.service';
  */
 @Module({
   controllers: [DynamicController],
-  providers: [PatchService, DynamicService]
+  providers: [PatchService, DynamicService],
 })
 export class DynamicModule implements NestModule {
   configure(consumer: MiddlewareConsumer): void | MiddlewareConsumer {

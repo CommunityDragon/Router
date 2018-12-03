@@ -3,7 +3,7 @@ import RequestEntity from '../entity/requestentity';
 import DataManager from '../entity/datamanager';
 import GenericID from '../entity/genericid';
 import { Types } from '../entity/routetypes';
-import { ResponseEntity,  } from '../entity/responseentity';
+import { ResponseEntity  } from '../entity/responseentity';
 import Axios from 'axios';
 import { Urls } from '../entity/urls';
 import CDragon from '../entity/cdragon';
@@ -20,45 +20,45 @@ export class DynamicService {
    * @param reqEntity
    */
   async filterCDNEntities(reqEntity: RequestEntity): Promise<any[]> {
-    let champions = await cdragon.getChampions(reqEntity.getPatch());
-    let reqRoutes = reqEntity.getRoutes();
+    const champions = await cdragon.getChampions(reqEntity.getPatch());
+    const reqRoutes = reqEntity.getRoutes();
     let dataRoutes = dataManager.getRoutes();
-    let segmentLength = reqRoutes.length;
-    
-    let paramData = {
+    const segmentLength = reqRoutes.length;
+
+    const paramData = {
       genericIds: [],
       championKey: null,
       championId: null,
-      skinId: null
+      skinId: null,
     };
-    
+
     dataRoutes = dataRoutes.filter(
       ({ cdnRoute }) => {
-        if (cdnRoute.route.length != segmentLength) return false;
+        if (cdnRoute.route.length !== segmentLength) return false;
 
         if (!this.isValidRoute(
-          cdnRoute, 
-          reqRoutes, 
-          paramData, 
+          cdnRoute,
+          reqRoutes,
+          paramData,
           champions)
         ) return false;
-        
+
         return !(reqEntity.getFormat()
-          && reqEntity.getFormat() != cdnRoute.format);
-      }
+          && reqEntity.getFormat() !== cdnRoute.format);
+      },
     );
 
-    let urls = [];
+    const urls = [];
 
     for (let i = 0; i < dataRoutes.length; i++) {
       const x = dataRoutes[i];
 
-      let value = await (
+      const value = await (
         new ResponseEntity(x.rawRoute, reqEntity.getPatch().getCDragonPatch(), paramData)
       ).getUrl();
 
-      if (typeof value == 'string') urls.push(value);
-      else value.forEach(url => { urls.push(url) }); 
+      if (typeof value === 'string') urls.push(value);
+      else value.forEach(url => { urls.push(url); });
     }
 
     return Promise.all(urls);
@@ -66,66 +66,66 @@ export class DynamicService {
 
   /**
    * checks if it is a valid route and assigns values to the paramData
-   * 
-   * @param cdnRoute 
-   * @param reqRoutes 
-   * @param paramData 
-   * @param champions 
+   *
+   * @param cdnRoute
+   * @param reqRoutes
+   * @param paramData
+   * @param champions
    */
   private isValidRoute(cdnRoute, reqRoutes, paramData, champions) {
     return (cdnRoute.route.every((route: any, i: number) => {
-      let correctType = (reqRoutes[i].types.indexOf(route.type) != -1);
-      
+      const correctType = (reqRoutes[i].types.indexOf(route.type) !== -1);
+
       if (correctType) {
         switch (route.type) {
           case Types.CHAMPION_ID:
             paramData = Object.assign(
-              paramData, this.getChampionById(champions, reqRoutes[i])
+              paramData, this.getChampionById(champions, reqRoutes[i]),
             );
             return true;
           case Types.CHAMPION_KEY:
             paramData = Object.assign(
-              paramData, this.getChampionByKey(champions, reqRoutes[i])
+              paramData, this.getChampionByKey(champions, reqRoutes[i]),
             );
             return true;
           case Types.SKIN_ID:
             paramData.skinId = reqRoutes[i].segment;
             return true;
           case Types.GENERIC_ID:
-            paramData.genericIds.push(new GenericID(reqRoutes[i].segment, route.identifier))
+            paramData.genericIds.push(new GenericID(reqRoutes[i].segment, route.identifier));
             return true;
           case Types.ROUTE:
-            return (route.value == reqRoutes[i].segment)
+            return (route.value === reqRoutes[i].segment);
         }
       }
       return correctType;
     }));
   }
-  
+
   /**
    * returns the championId and ChampionKey by Key
-   * 
-   * @param champions 
-   * @param reqRoute 
+   *
+   * @param champions
+   * @param reqRoute
    */
   private getChampionByKey(champions: any[], reqRoute: any) {
-    let champion =  champions.filter(
-      (champion) => champion.key.toLocaleLowerCase() == reqRoute.segment.toLocaleLowerCase()
+    const champion =  champions.filter(
+      (currentChampion) => currentChampion.key.toLocaleLowerCase() === reqRoute.segment.toLocaleLowerCase(),
     )[0];
-    return { championId: champion.id, championKey: champion.key }
+    return { championId: champion.id, championKey: champion.key };
   }
 
   /**
    * returns the championId and ChampionKey by ID
-   * 
-   * @param champions 
-   * @param reqRoute 
+   *
+   * @param champions
+   * @param reqRoute
    */
   private getChampionById(champions: any[], reqRoute: any) {
-    let champion = champions.filter(
-      (champion) => champion.id == reqRoute.segment
+    const champion = champions.filter(
+      (currentChampion) => currentChampion.id === reqRoute.segment,
     )[0];
-    return { championId: champion.id, championKey: champion.key }
+    return { championId: champion.id, championKey: champion.key };
   }
 
   /**
@@ -137,18 +137,18 @@ export class DynamicService {
   async pipeFile(urls: string[], res) {
     for (let i = 0; i < urls.length; i++) {
       try {
-        let { data } = await Axios({
+        const { data } = await Axios({
           responseType: 'stream',
           method: 'get',
-          url: Urls.CDRAGON_RAW_BASE + urls[i]
+          url: Urls.CDRAGON_RAW_BASE + urls[i],
         });
-        
+
         res.type((urls[i].split('.')).pop());
         data.pipe(res);
         return;
-      } catch(e) {}
+      } catch (e) {}
     }
-    
+
     res.status(404);
     res.send();
   }

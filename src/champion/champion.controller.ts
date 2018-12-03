@@ -1,19 +1,17 @@
-import { Get, Controller, Param, HttpException, HttpStatus, Request } from '@nestjs/common';
+import { Get, Controller, Request } from '@nestjs/common';
 import { ChampionService } from './champion.service';
-import { PatchService } from '../patch/patch.service';
-import Patch from '../entity/patch';
 
-/** 
+/**
  * provides champion info
  */
 @Controller('((:version([0-9]+).:patch([0-9]+).:fix([0-9]+))|latest)')
 export class ChampionController {
-  constructor(private championService: ChampionService, private patchService: PatchService) {}
-  
+  constructor(private championService: ChampionService) {}
+
   /**
    * gets an array of champion data.
-   * 
-   * @param req 
+   *
+   * @param req
    */
   @Get('/champions')
   async getAllChampions(@Request() req) {

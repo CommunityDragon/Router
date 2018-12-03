@@ -1,18 +1,17 @@
-import CDragon from "./cdragon";
-import Patch from "./patch";
-import Route from "./route";
-import { Types } from "./routetypes";
+import CDragon from './cdragon';
+import Patch from './patch';
+import Route from './route';
+import { Types } from './routetypes';
 
-const cdragon = CDragon.getInstance()
-
+const cdragon = CDragon.getInstance();
 
 export default class RequestEntity {
-  
+
   private patch: Patch;
   private routes: Route[];
   private format: string = null;
-  
-  constructor(patch: Patch, routes: Route[], format?: string, ) {
+
+  constructor(patch: Patch, routes: Route[], format?: string ) {
     this.patch = patch;
     this.format = format;
     this.routes = routes;
@@ -32,7 +31,7 @@ export default class RequestEntity {
             if (!champion) {
               hasChampionRoute = true;
               champion = champions.filter(
-                (x: any) => (x.id == route.segment)
+                (x: any) => (x.id === route.segment),
               )[0];
               return true;
             } else return false;
@@ -41,19 +40,19 @@ export default class RequestEntity {
             if (!champion) {
               hasChampionRoute = true;
               champion = champions.filter(
-                (x: any) => (x.key == route.segment)
+                (x: any) => (x.key === route.segment),
               )[0];
               return true;
             } else return false;
 
           case Types.SKIN_ID:
             if (champion && !skin && !hasChampionRoute) {
-              let temp = champion.skins.filter(
-                (x: any) => (x.id == route.segment)
+              const temp = champion.skins.filter(
+                (x: any) => (x.id === route.segment),
               );
 
               if (temp.length > 0) {
-                skin = temp[0]
+                skin = temp[0];
                 return true;
               } else return false;
             } else return false;
@@ -68,11 +67,11 @@ export default class RequestEntity {
   getPatch(): Patch {
     return this.patch;
   }
-  
+
   getRoutes(): Route[] {
     return this.routes;
   }
-  
+
   getFormat(): (string|null) {
     return this.format;
   }

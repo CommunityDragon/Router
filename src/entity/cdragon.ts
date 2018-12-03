@@ -1,9 +1,9 @@
-import { Urls } from './urls'
+import { Urls } from './urls';
 import axios from 'axios';
 import Patch from './patch';
 
 const CDRAGON_RAW_BASE = Urls.CDRAGON_RAW_BASE;
-const { watch, unwatch } = require("watchjs");
+const { watch, unwatch } = require('watchjs');
 
 const urlBase: string = CDRAGON_RAW_BASE;
 const summaryLink = '/plugins/rcp-be-lol-game-data/global/default/v1/champion-summary.json';
@@ -15,21 +15,21 @@ export default class CDragon {
 
   /** duration of cache */
   private duration = {
-    champions: 1000 * 3600
+    champions: 1000 * 3600,
   };
 
   /** epoch time of initialization of request */
   private initialized = {
-    champions: {}
+    champions: {},
   };
 
   private caching = {
-    champions: {}
+    champions: {},
   };
 
   /** stores the cache of the request */
   private cache = {
-    champions: {}
+    champions: {},
   };
 
   private constructor() { }
@@ -55,15 +55,15 @@ export default class CDragon {
    */
   async getChampions(patch: Patch): Promise<any[]> {
     try {
-      let cdragonPatch = patch.getCDragonPatch();
-      let { cache, initialized, duration } = this.getCacheStats(cdragonPatch);
+      const cdragonPatch = patch.getCDragonPatch();
+      const { cache, initialized, duration } = this.getCacheStats(cdragonPatch);
 
-      if (cache.length == 0 || initialized + duration < new Date().getTime()) {
+      if (cache.length === 0 || initialized + duration < new Date().getTime()) {
         if (this.caching.champions[cdragonPatch]) {
           await this.watchChampions(cdragonPatch);
         } else {
           this.caching.champions[cdragonPatch] = true;
-          let champions = await this.getProcessedChampions(cdragonPatch);
+          const champions = await this.getProcessedChampions(cdragonPatch);
           this.cache.champions[cdragonPatch] = await Promise.all(champions);
           this.setChampionsInitialized(cdragonPatch);
           this.caching.champions[cdragonPatch] = false;
@@ -71,7 +71,7 @@ export default class CDragon {
       }
 
       return this.cache.champions[cdragonPatch];
-    } catch(e) {
+    } catch (e) {
       console.debug(e);
       return [];
     }
@@ -84,14 +84,14 @@ export default class CDragon {
    */
   private watchChampions(cdragonPatch: any) {
     return new Promise((resolve) => {
-      let caching = this.caching;
+      const caching = this.caching;
       watch(caching.champions, cdragonPatch, function() {
         if (!caching.champions[cdragonPatch]) {
           unwatch(caching.champions, cdragonPatch);
           resolve();
         }
-      })
-    })
+      });
+    });
   }
 
   /**
@@ -118,18 +118,18 @@ export default class CDragon {
    * @param cdragonPatch
    */
   private async getProcessedChampions(cdragonPatch: string) {
-    let champions = await this.getRawChampions(cdragonPatch);
+    const champions = await this.getRawChampions(cdragonPatch);
 
-    let filteredChamps = champions.filter((champion) => {
+    const filteredChamps = champions.filter((champion) => {
       return (champion.id >= 1);
     });
 
     return champions.map(async (champion) => {
-      let { id, name, alias, roles } = champion;
-      let skins = await this.getProcessedSkins(cdragonPatch, id);
+      const { id, name, alias, roles } = champion;
+      const skins = await this.getProcessedSkins(cdragonPatch, id);
 
       return { id, name, key: alias, roles, skins };
-    })
+    });
   }
 
   /**
@@ -139,7 +139,7 @@ export default class CDragon {
    * @param id
    */
   private async getProcessedSkins(cdragonPatch: string, id: any) {
-    let skins = await this.getRawSkins(cdragonPatch, id);
+    const skins = await this.getRawSkins(cdragonPatch, id);
     return this.sanitizeSkins(skins, id);
   }
 
@@ -161,7 +161,9 @@ export default class CDragon {
    */
   private sanitizeSkins(skins: any, id: any): any {
     return skins.map((skin) => {
-      let { id: skinId, name: skinName, skinLines } = skin;
+      let { id: skinId, skinLines } = skin;
+      const { name: skinName } = skin;
+
       skinId -= id * 1000;
       skinLines = !skinLines ? [] : skinLines.map((x) => x.id);
       return { id: skinId, name: skinName, skinLines };
@@ -179,9 +181,9 @@ export default class CDragon {
     !this.cache.champions[cdragonPatch]
       ? this.cache.champions[cdragonPatch] = [] : null;
 
-    let initialized = this.initialized.champions[cdragonPatch];
-    let cache = this.cache.champions[cdragonPatch];
-    let duration = this.duration.champions;
+    const initialized = this.initialized.champions[cdragonPatch];
+    const cache = this.cache.champions[cdragonPatch];
+    const duration = this.duration.champions;
 
     return { cache, initialized, duration };
   }

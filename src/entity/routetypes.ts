@@ -5,4 +5,3 @@ export enum Types {
   CHAMPION_ID   = 'championId',
   CHAMPION_KEY  = 'championKey',
 }
-  
