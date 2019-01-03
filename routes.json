@@ -1,6 +1,37 @@
 [
   {
     "category": "Champion",
+    "name": "Square Icon Placeholder",
+    "cdn": {
+      "route": [
+        {
+          "type": "route",
+          "value": "champion"
+        },
+        {
+          "type": "route",
+          "value": "generic"
+        },
+        {
+          "type": "route",
+          "value": "square"
+        }
+      ],
+      "format": "png"
+    },
+    "raw": {
+      "returnType": "string",
+      "items": [
+        {
+          "returnType": "string",
+          "path": "/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/-1.png",
+          "items": []
+        }
+      ]
+    }
+  },
+  {
+    "category": "Champion",
     "name": "Square Icon",
     "cdn": {
       "route": [
