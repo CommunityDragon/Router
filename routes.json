@@ -10,11 +10,11 @@
         },
         {
           "type": "route",
-          "value": "generic"
+          "value": "square"
         },
         {
           "type": "route",
-          "value": "square"
+          "value": "generic"
         }
       ],
       "format": "png"
