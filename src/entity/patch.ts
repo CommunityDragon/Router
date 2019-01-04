@@ -22,7 +22,7 @@ export default class Patch {
 
   public async load() {
     const patches = (await Axios.get('https://raw.communitydragon.org/json/')).data
-    .filter(entry => entry.type === 'directory' && !isNaN(entry.name[0]))
+    .filter(entry => entry.type == 'directory' && !isNaN(entry.name[0]))
       .map(entry => entry.name)
       .sort((a, b) => versionCompare(a, b, null))
       .reverse();
@@ -36,7 +36,7 @@ export default class Patch {
    * @returns {string}  the patch in CDragon format
    */
   public getCDragonPatch(): string {
-    if (this.type === PatchType.CDRAGON) {
+    if (this.type == PatchType.CDRAGON) {
       return this.value;
     } else {
       const cdragonValue = (this.value.split('.', 2)).join('.');
@@ -52,7 +52,7 @@ export default class Patch {
    * @returns {string}  the patch in DDragon format
    */
   public getDDragonPatch(): string {
-    if (this.type === PatchType.DDRAGON) {
+    if (this.type == PatchType.DDRAGON) {
       return this.value;
     } else {
       return (this.value + '.1');
@@ -112,11 +112,11 @@ function versionCompare(v1, v2, options) {
   }
 
   for (let i = 0; i < v1parts.length; ++i) {
-      if (v2parts.length === i) {
+      if (v2parts.length == i) {
           return 1;
       }
 
-      if (v1parts[i] === v2parts[i]) {
+      if (v1parts[i] == v2parts[i]) {
           continue;
       }
       else if (v1parts[i] > v2parts[i]) {

@@ -57,7 +57,7 @@ export default class Route {
    */
   private async isAChampionId(patch: Patch): Promise<boolean> {
     const champions = await cdragon.getChampions(patch);
-    return ((champions.filter((x: any) => x.id === this.segment)).length > 0);
+    return ((champions.filter((x: any) => x.id == this.segment)).length > 0);
   }
 
   /**
@@ -66,7 +66,7 @@ export default class Route {
   private async isAChampionKey(patch: Patch): Promise<boolean> {
     const champions = await cdragon.getChampions(patch);
     return ((champions.filter(
-      (x: any) => x.key.toLocaleLowerCase() === this.segment.toLocaleLowerCase(),
+      (x: any) => x.key.toLocaleLowerCase() == this.segment.toLocaleLowerCase(),
     )).length > 0);
   }
 
@@ -77,7 +77,7 @@ export default class Route {
     const champions = await cdragon.getChampions(patch);
     return ((champions.filter((champion: any) =>
       ((champion.skins.filter((x: any) =>
-        x.id === this.segment,
+        x.id == this.segment,
       )).length > 0),
     )).length > 0);
   }

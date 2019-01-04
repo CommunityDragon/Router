@@ -47,7 +47,7 @@ export class ResponseEntity {
   async getUrl(): Promise<(string|string[])> {
     const path = await this.getPath();
 
-    if (this.returnType === 'array') {
+    if (this.returnType == 'array') {
       if (!this.first) {
         throw new Error('configuration invalid, array can\'t be a starting value');
       } else {
@@ -125,12 +125,12 @@ export class ResponseEntity {
   private getValue(json: any, arr: any[]) {
     let traversedJson = json;
     const node = arr[0];
-    if (typeof node === 'object') {
+    if (typeof node == 'object') {
       switch (Object.keys(node)[0]) {
         case 'searchFor':
           const value: string = this.generateValue(node.searchFor.value);
           const foundSegment = json.find(
-            segment => segment[node.searchFor.key] === value,
+            segment => segment[node.searchFor.key] == value,
           );
           traversedJson = foundSegment;
           break;

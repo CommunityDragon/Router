@@ -58,7 +58,7 @@ export default class CDragon {
       const cdragonPatch = patch.getCDragonPatch();
       const { cache, initialized, duration } = this.getCacheStats(cdragonPatch);
 
-      if (cache.length === 0 || initialized + duration < new Date().getTime()) {
+      if (cache.length == 0 || initialized + duration < new Date().getTime()) {
         if (this.caching.champions[cdragonPatch]) {
           await this.watchChampions(cdragonPatch);
         } else {

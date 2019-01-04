@@ -31,7 +31,7 @@ export default class RequestEntity {
             if (!champion) {
               hasChampionRoute = true;
               champion = champions.filter(
-                (x: any) => (x.id === route.segment),
+                (x: any) => (x.id == route.segment),
               )[0];
               return true;
             } else return false;
@@ -40,7 +40,7 @@ export default class RequestEntity {
             if (!champion) {
               hasChampionRoute = true;
               champion = champions.filter(
-                (x: any) => (x.key === route.segment),
+                (x: any) => (x.key == route.segment),
               )[0];
               return true;
             } else return false;
@@ -48,7 +48,7 @@ export default class RequestEntity {
           case Types.SKIN_ID:
             if (champion && !skin && !hasChampionRoute) {
               const temp = champion.skins.filter(
-                (x: any) => (x.id === route.segment),
+                (x: any) => (x.id == route.segment),
               );
 
               if (temp.length > 0) {

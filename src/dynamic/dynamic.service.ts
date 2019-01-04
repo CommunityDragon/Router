@@ -57,7 +57,7 @@ export class DynamicService {
         new ResponseEntity(x.rawRoute, reqEntity.getPatch().getCDragonPatch(), paramData)
       ).getUrl();
 
-      if (typeof value === 'string') urls.push(value);
+      if (typeof value == 'string') urls.push(value);
       else value.forEach(url => { urls.push(url); });
     }
 
@@ -95,7 +95,7 @@ export class DynamicService {
             paramData.genericIds.push(new GenericID(reqRoutes[i].segment, route.identifier));
             return true;
           case Types.ROUTE:
-            return (route.value === reqRoutes[i].segment);
+            return (route.value == reqRoutes[i].segment);
         }
       }
       return correctType;
@@ -110,7 +110,7 @@ export class DynamicService {
    */
   private getChampionByKey(champions: any[], reqRoute: any) {
     const champion =  champions.filter(
-      (currentChampion) => currentChampion.key.toLocaleLowerCase() === reqRoute.segment.toLocaleLowerCase(),
+      (currentChampion) => currentChampion.key.toLocaleLowerCase() == reqRoute.segment.toLocaleLowerCase(),
     )[0];
     return { championId: champion.id, championKey: champion.key };
   }
@@ -123,7 +123,7 @@ export class DynamicService {
    */
   private getChampionById(champions: any[], reqRoute: any) {
     const champion = champions.filter(
-      (currentChampion) => currentChampion.id === reqRoute.segment,
+      (currentChampion) => currentChampion.id == reqRoute.segment,
     )[0];
     return { championId: champion.id, championKey: champion.key };
   }

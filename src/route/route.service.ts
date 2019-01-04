@@ -12,10 +12,10 @@ export class RouteService {
     routes.forEach(({ name, category, cdnRoute }) => {
       let url = `${Urls.CDRAGON_CDN_BASE}:patch`;
       cdnRoute.route.forEach((slice: any) => {
-        if (slice.type === 'route') {
+        if (slice.type == 'route') {
           url += '/' + slice.value;
         } else {
-          url += `/:${slice.type === 'genericId'
+          url += `/:${slice.type == 'genericId'
             ? slice.identifier : slice.type}`;
         }
       });
