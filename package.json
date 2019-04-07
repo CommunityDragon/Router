@@ -1,6 +1,6 @@
 {
   "name": "dragon-router",
-  "version": "0.0.01",
+  "version": "2.0.0-beta",
   "scripts": {
     "start": "ts-node --inspect=5858 src/index.ts",
     "dev": "./node_modules/nodemon/bin/nodemon.js",
