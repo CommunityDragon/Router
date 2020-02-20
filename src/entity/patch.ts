@@ -36,11 +36,11 @@ export default class Patch {
    * @returns {string}  the patch in CDragon format
    */
   public getCDragonPatch(): string {
-    if (this.type == PatchType.CDRAGON) {
+    if (this.type === PatchType.CDRAGON) {
       return this.value;
     } else {
       const cdragonValue = (this.value.split('.', 2)).join('.');
-      if (this.cdragonPatches.indexOf(cdragonValue) ! < 0) {
+      if (this.cdragonPatches.indexOf(cdragonValue) !== -1) {
         return cdragonValue;
       } else return this.cdragonPatches[0];
     }
