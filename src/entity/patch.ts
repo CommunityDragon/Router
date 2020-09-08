@@ -6,6 +6,14 @@ export default class Patch {
   private value: string;
   private type: string;
 
+  static async fetchCDragonPatches(): Promise<string[]> {
+    return (await Axios.get('https://raw.communitydragon.org/json/')).data
+      .filter(entry => entry.type == 'directory' && !isNaN(entry.name[0]))
+        .map(entry => entry.name)
+        .sort((a, b) => versionCompare(a, b, null))
+        .reverse();
+  }
+
   /**
    * constructs an instance of the Patch class which manages
    * patches in both DDragon and CDragon format.
@@ -20,14 +28,12 @@ export default class Patch {
     this.type = patch.type;
   }
 
-  public async load() {
-    const patches = (await Axios.get('https://raw.communitydragon.org/json/')).data
-    .filter(entry => entry.type == 'directory' && !isNaN(entry.name[0]))
-      .map(entry => entry.name)
-      .sort((a, b) => versionCompare(a, b, null))
-      .reverse();
-
+  public async setPatches(patches) {
     this.cdragonPatches = patches;
+  }
+
+  public async load() {
+    this.cdragonPatches = await Patch.fetchCDragonPatches();
   }
 
   /**

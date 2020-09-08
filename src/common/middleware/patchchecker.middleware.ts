@@ -5,6 +5,9 @@ import { InvalidPatchException } from '../exception/patch.exception';
 
 @Injectable()
 export class PatchCheckerMiddleware implements NestMiddleware {
+  private cdragonPatches: string[] = [];
+  private timer: NodeJS.Timeout;
+
   constructor(private patchService: PatchService) {}
 
   async resolve(patchType: string): Promise<MiddlewareFunction> {
@@ -13,22 +16,31 @@ export class PatchCheckerMiddleware implements NestMiddleware {
       let patchString: string;
       let lolPatch: Patch;
 
+      if (!this.timer) {
+        this.timer = setInterval(() => {
+          Patch.fetchCDragonPatches().then(patches => this.cdragonPatches = patches)
+        }, 3600 * 12)
+      }
+
+      if (this.cdragonPatches.length == 0) {
+        this.cdragonPatches = await Patch.fetchCDragonPatches()
+      }
+
       /** Validate patch */
       if (req.url.startsWith('/latest')) {
-        patchString = (await this.patchService.getPatches())[0];
+        patchString = this.cdragonPatches[0];
       } else {
-        patchString = `${version}.${patch}.${fix}`;
+        patchString = `${version}.${patch}`;
+        if (this.cdragonPatches.indexOf(patchString) < 0) {
+          throw new InvalidPatchException(patchString);
+        }
       }
 
-      lolPatch = new Patch({ type: patchType, value: patchString });
-      await lolPatch.load();
+      lolPatch = new Patch({ type: 'cdragon', value: patchString });
+      await lolPatch.setPatches([...this.cdragonPatches]);
 
-      if (!await this.patchService.verifyPatch(lolPatch)) {
-        throw new InvalidPatchException(patchString);
-      } else {
-        req.patch = lolPatch;
-        next();
-      }
+      req.patch = lolPatch;
+      next();
     };
   }
 }
