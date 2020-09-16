@@ -7,11 +7,13 @@ export default class Patch {
   private type: string;
 
   static async fetchCDragonPatches(): Promise<string[]> {
-    return (await Axios.get('https://raw.communitydragon.org/json/')).data
-      .filter(entry => entry.type == 'directory' && !isNaN(entry.name[0]))
-        .map(entry => entry.name)
-        .sort((a, b) => versionCompare(a, b, null))
-        .reverse();
+    return (await Axios.get('https://raw.communitydragon.org/.internal/patches')).data
+    .split('\n')
+    // return (await Axios.get('https://raw.communitydragon.org/json/')).data
+    //   .filter(entry => entry.type == 'directory' && !isNaN(entry.name[0]))
+    //     .map(entry => entry.name)
+    //     .sort((a, b) => versionCompare(a, b, null))
+    //     .reverse();
   }
 
   /**

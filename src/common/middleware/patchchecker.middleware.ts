@@ -19,7 +19,7 @@ export class PatchCheckerMiddleware implements NestMiddleware {
       if (!this.timer) {
         this.timer = setInterval(() => {
           Patch.fetchCDragonPatches().then(patches => this.cdragonPatches = patches)
-        }, 3600 * 12)
+        }, 3600)
       }
 
       if (this.cdragonPatches.length == 0) {
